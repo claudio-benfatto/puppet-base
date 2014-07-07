@@ -1,4 +1,0 @@
----
-classes:
-  - site_web
-site_web::packages::apache_version: 2.2.22-1ubuntu1.4

@@ -1,0 +1,17 @@
+{
+  "name": "foodity-mysql",
+  "version": "0.1.0",
+  "author": "foodity",
+  "summary": "Foodity Mysql Profile",
+  "license": "Apache 2.0",
+  "source": "",
+  "issues_url": null,
+  "project_page": null,
+  "dependencies": [
+    {
+      "version_range": ">= 1.0.0",
+      "name": "puppetlabs-stdlib"
+    }
+  ]
+}
+

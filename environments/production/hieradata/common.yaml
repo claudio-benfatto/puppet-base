@@ -1,0 +1,18 @@
+---
+
+classes:
+  -  profiles::common::packages
+
+software:
+  pv:
+    ensure: 'latest'
+  git:
+   ensure: 'latest'
+  python-pip: 
+    ensure: 'latest'
+  build-essential: 
+    ensure: 'latest'
+  checkinstall: 
+    ensure: 'latest'
+  ruby1.9.1-dev: 
+    ensure: 'latest'
