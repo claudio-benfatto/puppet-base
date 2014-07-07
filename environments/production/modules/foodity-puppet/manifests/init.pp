@@ -44,7 +44,7 @@ class foodity-puppet {
   }
 
   file { '/root/.ssh/id_rsa':
-    source => 'puppet:///modules/puppet/root.priv',
+    source => 'puppet:///modules/foodity-puppet/root.priv',
     owner => 'root',
     mode  => '0600',
   }
