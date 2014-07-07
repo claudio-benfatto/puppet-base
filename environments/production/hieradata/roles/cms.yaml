@@ -1,15 +1,15 @@
 ---
 classes:
- - profiles::mysql
- - profiles::apache
- - profiles::java
+ - foodity-mysql
+ - foodity-apache
+ - foodity-java
 
 
 ##########################MYSQL####################
 
 profile::mysql::server::root_password: 'rewit555'
 
-profiles::mysql::server:
+foodity-mysql::mysql::server:
   databases:
     'service':
       user: 'service'
@@ -18,7 +18,7 @@ profiles::mysql::server:
       host: 'localhost'
       ensure: 'present'
 
-profiles::mysql::server:
+foodity-mysql::mysql::server:
   users:
   'claudio@localhost':
     ensure: 'present'

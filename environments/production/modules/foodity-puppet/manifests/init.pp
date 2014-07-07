@@ -1,6 +1,6 @@
-# == Class: roles
+# == Class: puppet
 #
-# Full description of class roles here.
+# Full description of class puppet here.
 #
 # === Parameters
 #
@@ -23,7 +23,7 @@
 #
 # === Examples
 #
-#  class { roles:
+#  class { puppet:
 #    servers => [ 'pool.ntp.org', 'ntp.local.company.com' ],
 #  }
 #
@@ -35,10 +35,26 @@
 #
 # Copyright 2014 Your name here, unless otherwise noted.
 #
-class roles::cms {
+class foodity-puppet {
 
-import foodity-apache
-import foodity-mysql
-import foodity-java
+
+  file { '/usr/local/bin/papply':
+    source => 'puppet:///modules/foodity-puppet/papply.sh',
+    mode => '0755',
+  }
+
+  file { '/root/.ssh/id_rsa':
+    source => 'puppet:///modules/puppet/root.priv',
+    owner => 'root',
+    mode  => '0600',
+  }
+
+   cron { 'run-puppet':
+     ensure => 'present',
+     user => 'root',
+     command => '/usr/local/bin/pull-updates',
+     minute => '*/10',
+     hour => '*',
+  }
 
 }

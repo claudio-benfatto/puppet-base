@@ -1,8 +1,8 @@
 ---
 
 classes:
-  -  profiles::common::packages
-
+  -  foodity-common::packages
+  -  foodity-puppet
 software:
   pv:
     ensure: 'latest'
@@ -15,4 +15,14 @@ software:
   checkinstall: 
     ensure: 'latest'
   ruby1.9.1-dev: 
+    ensure: 'latest'
+  lynx:
+    ensure: 'latest'
+  nmap:
+    ensure: 'latest'
+  dselect:
+    ensure: 'latest'
+  tree:
+    ensure: 'latest'
+  expect:
     ensure: 'latest'
