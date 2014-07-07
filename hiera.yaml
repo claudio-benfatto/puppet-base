@@ -6,9 +6,9 @@
   - defaults
   - "%{clientcert}"
   - "%{environment}"
-  - "groups/%{::server_group}"
-  - "types/%{::server_type}"
-  - global
+  - "roles/%{foodity_role}"
+  - "profiles/%{::foodity_profile}"
+  - common
 
 :yaml:
 # datadir is empty here, so hiera uses its defaults:
