@@ -56,7 +56,7 @@ class foodity-puppet {
   }
 
    cron { 'run-puppet':
-     ensure => 'present',
+     ensure => 'absent',
      user => 'root',
      command => '/usr/local/bin/pull-updates',
      minute => '*/10',
