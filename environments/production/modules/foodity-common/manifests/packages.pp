@@ -1,4 +1,4 @@
-class profiles::common::packages {
+class foodity-common::packages {
 
   
   create_resources('package', hiera_hash('software'))
@@ -17,7 +17,7 @@ class profiles::common::packages {
   file {"${::root_home}/.aws":
     ensure  => directory,
     recurse => true,
-    source  => "puppet:///modules/profiles/aws/config",
+    source  => "puppet:///modules/foodity-common/aws/config",
     owner   => 'root',
     group   => 'root',
     mode    => 0755,

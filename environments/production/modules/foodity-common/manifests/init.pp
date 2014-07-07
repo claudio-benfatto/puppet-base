@@ -1,6 +1,6 @@
-# == Class: roles
+# == Class: common
 #
-# Full description of class roles here.
+# Full description of class common here.
 #
 # === Parameters
 #
@@ -23,7 +23,7 @@
 #
 # === Examples
 #
-#  class { roles:
+#  class { common:
 #    servers => [ 'pool.ntp.org', 'ntp.local.company.com' ],
 #  }
 #
@@ -35,10 +35,7 @@
 #
 # Copyright 2014 Your name here, unless otherwise noted.
 #
-class roles::cms {
+class common {
 
-import foodity-apache
-import foodity-mysql
-import foodity-java
 
 }

@@ -35,7 +35,7 @@
 #
 # Copyright 2014 Your name here, unless otherwise noted.
 #
-class profiles::apache {
+class foodity-apache {
 
   class {'::apache': 
     mpm_module => 'prefork',
