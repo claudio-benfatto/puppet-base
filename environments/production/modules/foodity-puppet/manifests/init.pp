@@ -43,6 +43,12 @@ class foodity-puppet {
     mode => '0755',
   }
 
+  file { '/usr/local/bin/pull-updates':
+    source => 'puppet:///modules/foodity-puppet/pull-updates.sh',
+    mode => '0755',
+}
+
+
   file { '/root/.ssh/id_rsa':
     source => 'puppet:///modules/foodity-puppet/root.priv',
     owner => 'root',
