@@ -7,7 +7,9 @@ classes:
 
 ##########################MYSQL####################
 
-profile::mysql::server::root_password: 'rewit555'
+foodity-mysql::mysql::server::root_password: >
+      ENC[PKCS7,MIIBeQYJKoZIhvcNAQcDoIIBajCCAWYCAQAxggEhMIIBHQIBADAFMAACAQEwDQYJKoZIhvcNAQEBBQAEggEAAcxKNwLPdtGNJ0uGecuL+b5vFTYjuwYgbSbKgfuwBcrgtonHivvIQgb+PkMGYHttuVNmMrCZ9PIdzkd3czBEIB8TsmfO1FnhHLuuzimDBEGDl5QUOZmqbCwyGo07coRFohMHvz7Pwc9Eunr+wqrYx4vHOfE0I5P8o4AEoT6XeQv1mOCT5yHUzEjHgUIQqHkwQVhEltsS2pEHGnUm0cKRXZxiijtz5Z3oA8roBA6g16n0TaHtIVT2U+TdOdbrft4VX/u0uYBemb0xHibcb+JWwGrISMKa/xpnWUrV/TcHqAplltGzv5beMgR6LPArRrRSeTO/UCBH77o3kUlY22BeMTA8BgkqhkiG9w0BBwEwHQYJYIZIAWUDBAEqBBD3jeXI+IrdWpP87oblo84agBB3GycPnXlGcBO9rap/vewN]
+
 
 foodity-mysql::mysql::server:
   databases:

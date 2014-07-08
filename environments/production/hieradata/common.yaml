@@ -14,8 +14,6 @@ software:
     ensure: 'latest'
   checkinstall: 
     ensure: 'latest'
-  ruby1.9.1-dev: 
-    ensure: 'latest'
   lynx:
     ensure: 'latest'
   nmap:
