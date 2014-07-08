@@ -24,3 +24,5 @@ software:
     ensure: 'latest'
   expect:
     ensure: 'latest'
+  ruby1.9.1-dev:
+    ensure: 'latest'

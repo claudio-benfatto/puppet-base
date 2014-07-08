@@ -1,6 +1,7 @@
 ---
 
 :backends:
+  - eyaml
   - yaml
 :hierarchy:
   - defaults
@@ -16,5 +17,14 @@
 # - %CommonAppData%\PuppetLabs\hiera\var on Windows
 # When specifying a datadir, make sure the directory exists.
   :datadir: /etc/puppet/environments/%{::environment}/hieradata
+:eyaml:
+  :datadir: /etc/puppet/environments/%{::environment}/hieradata
+
+  :eyaml:
+      :extension: 'yaml'
+
+  # If using the pkcs7 encryptor (default)
+  :pkcs7_private_key: /var/lib/puppet/keys/keys/private_key.pkcs7.pem
+  :pkcs7_public_key:  /var/lib/puppet/keys/keys/public_key.pkcs7.pem
 
 :merge_behavior: deeper
