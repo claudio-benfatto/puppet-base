@@ -1,8 +1,8 @@
 ---
-
 classes:
-  -  foodity-common::packages
+  -  foodity-common
   -  foodity-puppet
+
 software:
   pv:
     ensure: 'latest'

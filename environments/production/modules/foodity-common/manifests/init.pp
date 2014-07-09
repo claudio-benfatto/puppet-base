@@ -35,7 +35,7 @@
 #
 # Copyright 2014 Your name here, unless otherwise noted.
 #
-class common {
+class foodity-common {
 
-
+include foodity-common::packages
 }

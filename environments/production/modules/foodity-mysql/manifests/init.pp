@@ -37,7 +37,9 @@
 #
 class foodity-mysql {
 
-  include mysql::server
+
+  class { 'mysql::server': 
+  }
 
 }
 
