@@ -37,5 +37,6 @@
 #
 class foodity-common {
 
-include foodity-common::packages
+  include foodity-common::packages
+
 }

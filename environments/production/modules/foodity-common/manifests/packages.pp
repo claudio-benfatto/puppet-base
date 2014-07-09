@@ -10,20 +10,20 @@ class foodity-common::packages {
 
   exec {'deep_merge':
     command => 'gem1.8 install deep_merge',
-    path => '/usr/bin/',
-    unless => 'test $(gem1.8 list --installed deep_merge == "true")',
+    path => '/usr/bin/:/bin/',
+    unless => 'gem1.8 list | grep -c deep_merge',
   }
 
    exec {'hiera-eyaml':
     command => 'gem1.8 install hiera-eyaml',
-    path => '/usr/bin',
-    unless => 'test $(gem1.8 list --installed hiera-eyaml == "true")',
+    path => '/usr/bin:/bin/',
+    unless => 'gem1.8 list | grep -c hiera-eyaml',
   }
  
   exec {'highline':
     command => 'gem1.8 install highline',
-    path => '/usr/bin',
-    unless => 'test $(gem1.8 list --installed highline == "true")',
+    path => '/usr/bin:/bin/',
+    unless => 'gem1.8 list | grep -c highline',
   }
 
   package {'awscli':
