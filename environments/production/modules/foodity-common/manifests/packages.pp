@@ -3,11 +3,35 @@ class foodity-common::packages {
   
   create_resources('package', hiera_hash('software'))
 
+  package {'rubygems':
+    ensure => present,
+    before => ['Exec[deep_merge]', 'Exec[hiera-eyaml]', 'Exec[highline]'],
+  }
+
+  exec {'deep_merge':
+    command => 'gem1.8 install deep_merge',
+    path => '/usr/bin/',
+    unless => 'test $(gem1.8 list --installed deep_merge == "true")',
+  }
+
+   exec {'hiera-eyaml':
+    command => 'gem1.8 install hiera-eyaml',
+    path => '/usr/bin',
+    unless => 'test $(gem1.8 list --installed hiera-eyaml == "true")',
+  }
+ 
+  exec {'highline':
+    command => 'gem1.8 install highline',
+    path => '/usr/bin',
+    unless => 'test $(gem1.8 list --installed highline == "true")',
+  }
+
   package {'awscli':
     ensure   => present,
     provider => 'pip',
     require  => [File["${::root_home}/.aws"], Package['python-pip']],
   }
+
   package {'aws-sdk':
     ensure   => present,
     provider => 'gem',

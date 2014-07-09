@@ -37,8 +37,4 @@
 #
 class roles::cms {
 
-import foodity-apache
-import foodity-mysql
-import foodity-java
-
 }
