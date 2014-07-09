@@ -49,11 +49,12 @@ class foodity-puppet {
 }
 
 
-  file { '/root/.ssh/id_rsa':
-    source => 'puppet:///modules/foodity-puppet/root.priv',
-    owner => 'root',
-    mode  => '0600',
-  }
+  create_resources('file', hiera_hash(private_ssh_key))
+
+#  file { '/root/.ssh/id_rsa':
+#    owner => 'root',
+#    mode  => '0600',
+#  }
 
    cron { 'run-puppet':
      ensure => 'present',

@@ -1,6 +1,9 @@
 class foodity-common::packages {
-
-  
+ 
+  $aws_region = hiera('aws_region')
+  $aws_access_key_id = hiera('aws_access_key_id')
+  $aws_secret_access_key = hiera('aws_secret_access_key')
+ 
   create_resources('package', hiera_hash('software'))
 
   package {'rubygems':
@@ -41,10 +44,18 @@ class foodity-common::packages {
   file {"${::root_home}/.aws":
     ensure  => directory,
     recurse => true,
-    source  => "puppet:///modules/foodity-common/aws/config",
     owner   => 'root',
     group   => 'root',
     mode    => 0755,
+  }
+
+  file {"${::root_home}/.aws/config":
+    ensure => file,
+    owner => 'root',
+    content  => template('foodity-common/aws/config.erb'),
+    group => 'root',
+    mode => '600',
+    require => "File[${::root_home}/.aws]",
   }
 
   file {"${::root_home}/dbimports":
