@@ -2,6 +2,14 @@
 classes:
   -  foodity-common
   -  foodity-puppet
+  -  foodity-ssh
+
+foodity-ssh::username: 'root'
+foodity-ssh::server_list:
+  - git.foodity.com
+  - github.com
+
+ssh_git_remote: 'git@git.foodity.com:claudio.benfatto/puppet-automation.git'
 
 aws_region: 'eu-west-1'
 

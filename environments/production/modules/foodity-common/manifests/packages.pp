@@ -71,4 +71,5 @@ class foodity-common::packages {
     user        => 'root',
     subscribe   => Package['ruby1.9.1-dev'],
   }
+
 }

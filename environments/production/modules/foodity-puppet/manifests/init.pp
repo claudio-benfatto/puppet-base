@@ -37,6 +37,8 @@
 #
 class foodity-puppet {
 
+  $ssh_git_remote = hiera('ssh_git_remote')
+
 
   file { '/usr/local/bin/papply':
     source => 'puppet:///modules/foodity-puppet/papply.sh',
@@ -56,12 +58,23 @@ class foodity-puppet {
 #    mode  => '0600',
 #  }
 
+ exec {'set-git-remote':
+   command => "git remote set-url origin ${ssh_git_remote}",
+   path => '/usr/bin/:/bin/',
+   cwd => '/etc/puppet',
+   unless => "git remote show origin | grep ${ssh_git_remote} 2> /dev/null", 
+   require => 'Package[git]',
+  }
+
+
    cron { 'run-puppet':
      ensure => 'present',
      user => 'root',
      command => '/usr/local/bin/pull-updates',
      minute => '*/10',
      hour => '*',
+     require => ['Exec[set-git-remote]', 'File[/root/.ssh/id_rsa]', 'Exec[add_known_hosts]' ]
+  #   require =>  'Exec[add-git-to-known-hosts]',
   }
 
 }
