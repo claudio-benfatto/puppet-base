@@ -1,8 +1,5 @@
 #!/bin/bash
-array=( 
-    <% @server_list.each do |known_host| %>
-    <%= known_host %>
-    <% end %> )
+array=( <% @server_list.each do |known_host| -%><%= known_host -%><% end -%> )
 
 for h in "${array[@]}"
 do
