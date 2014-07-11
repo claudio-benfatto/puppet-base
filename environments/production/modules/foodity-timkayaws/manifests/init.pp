@@ -37,14 +37,17 @@
 #
 class foodity-timkayaws {
 
-file { '/usr/bin/':
-  owner => 'root',
-  ensure => directory,
-  group => 'root',
-  mode  => 755,
-  recurse => true,
-  source  => 'puppet:///modules/foodity-timkayaws/aws',
-}
+  create_resources('file', hiera(aws_files))
+
+
+#file { '/usr/bin/':
+#  owner => 'root',
+#  ensure => directory,
+#  group => 'root',
+#  mode  => 755,
+#  recurse => true,
+#  source  => 'puppet:///modules/foodity-timkayaws/aws',
+#}
 
 #file { '/home/ubuntu/.awssecret':
 #  owner => 'ubuntu',

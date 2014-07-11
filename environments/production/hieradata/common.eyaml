@@ -14,6 +14,30 @@ aws_access_key_id: ENC[PKCS7,MIIBiQYJKoZIhvcNAQcDoIIBejCCAXYCAQAxggEhMIIBHQIBADA
 
 aws_secret_access_key: ENC[PKCS7,MIIBmQYJKoZIhvcNAQcDoIIBijCCAYYCAQAxggEhMIIBHQIBADAFMAACAQEwDQYJKoZIhvcNAQEBBQAEggEATXb1BLgZ4ydd02dQUpt9hUyS7oV7J76eTUdWKFWOs2b+XK+QkV6VTBan+xU8jD/5j6B0rM7vF5gXldQOiinPwAf/YpjmaJKsv7ymcUhnUA3HFVFVS3Cs4Do/843LPxQ9irIZqMfVzkfDAWlWyeR0WTJBxvJlplEr1QybkWsKWMH2DBsHK+VCGNYRs3kR3e12pAP0MtegSDXgdsWMm6ZNLl/j7Cjkidln7iJJ9Ue5UxhogSb/VW88yUikgyihkJQ1K36tVgb0gFO0m5cJkOSsLdpOOxk9GzIyiamWjK9NoQ6NgInmShTI604HxmWW577r3Tunx8qnBtWajWgE2e91xzBcBgkqhkiG9w0BBwEwHQYJYIZIAWUDBAEqBBCBXY+M38Y3mPC5Hl7a26fmgDCdcfb5HrT8/w6s7WnPIi5/8lOJOScXbMbU4NLWj0CSJkzszcwZeYVLH3vpT52pAoc=]
 
+aws_files:
+  '/home/ubuntu/.awssecret':
+    owner: 'ubuntu'
+    group: 'ubuntu'
+    mode: '400'
+    ensure: file
+    content: ENC[PKCS7,MIIBqQYJKoZIhvcNAQcDoIIBmjCCAZYCAQAxggEhMIIBHQIBADAFMAACAQEwDQYJKoZIhvcNAQEBBQAEggEArXs8izRFL9cBcqKWg+yyhenZ8RwJKsCgtBkBLSShc4toyOGBm2xLdPypZmNQFldX2aRJvvlA7miC2WFPkERwqwZEkev0lcRZMgduEmGoObRqnE6Lp59kTuQxb4KaSzfZ7D1QQ77A7iK1/Aisk7lLljqaI3oXUI4OIPXRQ6FQuSY3rglH//kXqQNxcyPU/8z5GCIaKERukI+kU2J0ToUSQ/b98u06W+uTtvxrspzkkfwFnuoT0GACgI84Nm/c+iIDauVcNuEqyX3cp6bPyYg1K2LdBcQ98cVU1YCCz0aJV//6mazvKEkNq69ZIplGJiej0VCEgwKj4Bg3M9lREs3LHTBsBgkqhkiG9w0BBwEwHQYJYIZIAWUDBAEqBBDwuwcOTVaKbJ42x3zZIaKDgEDor5oYuuXJ5aom4PLbdT15giIUEFs9gyjBAVd0vd9QqCjWl7NtY84eAGvrS72gkka+Z4d+BbJHFpbxwWK0U2HU]
+
+  '/home/ubuntu/.awsrc':
+    owner: 'ubuntu'
+    group: 'ubuntu'
+    mode: '400'
+    ensure: file
+    content: |
+        --insecure-aws
+        --region=eu-west-1
+
+  '/usr/bin/':
+    owner: 'root'
+    ensure: 'directory'
+    group: 'root'
+    mode:  '755'
+    recurse: true
+    source: 'puppet:///modules/foodity-timkayaws/aws'
 
 
 software:
