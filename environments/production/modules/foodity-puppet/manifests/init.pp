@@ -38,6 +38,7 @@
 class foodity-puppet {
 
   $ssh_git_remote = hiera('ssh_git_remote')
+  create_resources('ssh::server::host_key', hiera(host_ssh_keys))
 
 
   file { '/usr/local/bin/papply':
@@ -50,14 +51,6 @@ class foodity-puppet {
     mode => '0755',
 }
 
-
-  create_resources('file', hiera_hash(private_ssh_key))
-
-#  file { '/root/.ssh/id_rsa':
-#    owner => 'root',
-#    mode  => '0600',
-#  }
-
  exec {'set-git-remote':
    command => "git remote set-url origin ${ssh_git_remote}",
    path => '/usr/bin/:/bin/',
@@ -66,15 +59,13 @@ class foodity-puppet {
    require => 'Package[git]',
   }
 
-
    cron { 'run-puppet':
-     ensure => 'present',
+     ensure => 'absent',
      user => 'root',
      command => '/usr/local/bin/pull-updates',
      minute => '*/10',
      hour => '*',
      require => ['Exec[set-git-remote]', 'File[/root/.ssh/id_rsa]', 'Exec[add_known_hosts]' ]
-  #   require =>  'Exec[add-git-to-known-hosts]',
   }
 
 }

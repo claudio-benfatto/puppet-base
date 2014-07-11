@@ -1,0 +1,42 @@
+---
+classes:
+  -  foodity-common
+  -  foodity-puppet
+  -  ssh
+
+###########################################################################################################
+################################### SSH CONFIGURATION #####################################################
+###########################################################################################################
+  
+ssh::server_options:
+  PasswordAuthentication: 'yes'
+  AllowTcpForwarding: 'no'
+  X11Forwarding: 'no'
+  PermitRootLogin: 'yes'
+  Port: '22'
+
+ssh::foodity-knownhosts::username: 'root'
+ssh::foodity-knownhosts::server_list:
+  - github.com
+  - git.foodity.com
+foodity-knownhosts::require: 'Class[::ssh]'
+
+ssh_git_remote: 'git@git.foodity.com:claudio.benfatto/puppet-automation.git'
+
+######################################### HOST SSH KEYS ####################################################
+
+host_ssh_keys:
+  id_rsa:
+     public_key_content: 'AAAAB3NzaC1yc2EAAAADAQABAAABAQDedVaxYMx3nccLyxmJD5Fc6WZ5VlXulWqc0PwdhOeb7AUKuETbL7Q9Czx9yFLB3tNRbhpWpQA9JjZCMAvpeIc9hhRVucue0/h7ZUm+iqOfIGQEB6w+O5Vp1EcpgkwxDuh2kEGLKL56/b/tr2eY9HUeXsHmXIjXT1mYE+n9ljxujV0SfQFPo2q90FZAa3I9j2jahekggucdw/qOspKtntf2m3/avH3X3M/hkF4yCoC/ffa3MZAHGUZbFlV0rJ0pGqLiQfRPqv9PIrSHb6xK4aeHfyyBlBMNXWGIsaKeHKnum5raHTRwt/ZsNlDCQZPSqxrPapZsXfAp3Dg8HrB0ZNeF'
+     private_key_content: ENC[PKCS7,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]
+
+###################################### AUTHORIZED USERS PUBLIC KEYS ######################################
+
+ssh_authorized_keys:
+  'claudio.benfatto_ssh_key':
+    ensure: present
+    key: 'AAAAB3NzaC1yc2EAAAADAQABAAABAQClgQGKSedjskrhXyCvTIhzZB1bWOurt2yfnrfNwO6s5fQQEQIZieSA+3WPCwZTbMJIro8NfVZzUgjP0QUEymDh+lsFPJW41eXCtkaOJbHGxQb8AuaDpocB19dMfzBoK/chlw0w8xiBfTRnCJeOZ8wvr1acKKD7wYo1ydL5W3pOJk45/4qZkREtgIuGSzi7InS/4odcA/msDukVF+Unken2Wc4H+a13i1KVc5RbOHNyCHfJDQRAz34mKdcSTNbWTubAm0xne/iB2AV8jJEgoAEr6Tn1oYU9k3bFEuRS2Vg6Jrtazv+QHASHTcfVSZbxbgg/eIO+O8nlRsRoV89b/jnp'
+    user: 'ubuntu'
+    type: 'ssh-rsa'
+
+

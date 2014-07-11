@@ -2,14 +2,11 @@
 classes:
   -  foodity-common
   -  foodity-puppet
-  -  foodity-ssh
+  -  foodity-timkayaws
 
-foodity-ssh::username: 'root'
-foodity-ssh::server_list:
-  - git.foodity.com
-  - github.com
-
-ssh_git_remote: 'git@git.foodity.com:claudio.benfatto/puppet-automation.git'
+###########################################################################################################
+###################################### AMAZON CONFIGURATION ###############################################
+###########################################################################################################
 
 aws_region: 'eu-west-1'
 
@@ -17,11 +14,7 @@ aws_access_key_id: ENC[PKCS7,MIIBiQYJKoZIhvcNAQcDoIIBejCCAXYCAQAxggEhMIIBHQIBADA
 
 aws_secret_access_key: ENC[PKCS7,MIIBmQYJKoZIhvcNAQcDoIIBijCCAYYCAQAxggEhMIIBHQIBADAFMAACAQEwDQYJKoZIhvcNAQEBBQAEggEATXb1BLgZ4ydd02dQUpt9hUyS7oV7J76eTUdWKFWOs2b+XK+QkV6VTBan+xU8jD/5j6B0rM7vF5gXldQOiinPwAf/YpjmaJKsv7ymcUhnUA3HFVFVS3Cs4Do/843LPxQ9irIZqMfVzkfDAWlWyeR0WTJBxvJlplEr1QybkWsKWMH2DBsHK+VCGNYRs3kR3e12pAP0MtegSDXgdsWMm6ZNLl/j7Cjkidln7iJJ9Ue5UxhogSb/VW88yUikgyihkJQ1K36tVgb0gFO0m5cJkOSsLdpOOxk9GzIyiamWjK9NoQ6NgInmShTI604HxmWW577r3Tunx8qnBtWajWgE2e91xzBcBgkqhkiG9w0BBwEwHQYJYIZIAWUDBAEqBBCBXY+M38Y3mPC5Hl7a26fmgDCdcfb5HrT8/w6s7WnPIi5/8lOJOScXbMbU4NLWj0CSJkzszcwZeYVLH3vpT52pAoc=]
 
-private_ssh_key:
-  '/root/.ssh/id_rsa':
-    owner: 'root'
-    mode:  '0600'
-    content: ENC[PKCS7,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]
+
 
 software:
   pv:
@@ -46,3 +39,4 @@ software:
     ensure: 'latest'
   ruby1.9.1-dev:
     ensure: 'latest'
+

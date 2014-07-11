@@ -49,8 +49,12 @@ class foodity-apache {
   }
   include apache::mod::proxy
   include apache::mod::status
+  include apache::mod::ssl
+  apache::mod { 'jk':
+    require => 'Package[libapache2-mod-jk]'
+  }
 
-
+  create_resources('package', hiera_hash('apache_software'))
   create_resources('file', hiera_hash('apache_folders'))
   create_resources('::apache::vhost', hiera_hash('apache_vhosts'))
 }

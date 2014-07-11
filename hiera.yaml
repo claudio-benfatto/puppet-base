@@ -8,8 +8,8 @@
   - "%{clientcert}"
   - "%{environment}"
   - "roles/%{foodity_role}"
-  - "profiles/%{::foodity_profile}"
   - common
+  - common_ssh
 
 :yaml:
 # datadir is empty here, so hiera uses its defaults:

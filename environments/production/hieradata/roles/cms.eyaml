@@ -3,6 +3,7 @@ classes:
  - foodity-mysql
  - foodity-apache
  - foodity-java
+ - foodity-php
 
 
 ##########################MYSQL####################
@@ -28,6 +29,9 @@ mysql::server::users:
 
 #############################APACHE#######################
 
+apache_software:
+  libapache2-mod-jk:
+    ensure: latest
 
 apache_folders:
     '/var/www/service':
@@ -68,3 +72,24 @@ apache_vhosts:
       - 'upload_tmp_dir /var/www/service/tmp'
       - 'register_globals off'
     require: 'File[/var/www/service/www/public]'
+
+
+########################################################PHP#####################################
+
+php_software:
+  php5-curl:
+    ensure: latest
+  php5-mcrypt:
+    ensure: latest
+  php-pear:
+    ensure: latest
+  php5-sqlite:
+    ensure: latest
+  php5-intl:
+    ensure: latest
+  phpmyadmin:
+    ensure: latest
+    require: 
+     -  'Package[mysql-server]'
+     -  'Package[apache2]'
+
