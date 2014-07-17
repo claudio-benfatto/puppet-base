@@ -45,7 +45,7 @@ class foodity-timkayaws {
 #  ensure => directory,
 #  group => 'root',
 #  mode  => 755,
-#  recurse => true,
+#  recurse => remote,
 #  source  => 'puppet:///modules/foodity-timkayaws/aws',
 #}
 
@@ -55,7 +55,7 @@ class foodity-timkayaws {
 #  mode  => 400,
 #  content => hiera(aws_secret),
 #}
-
+#
 #file { '/home/vagrant/.awsrc':
 #  owner => 'ubuntu',
 #  group => 'ubuntu',
