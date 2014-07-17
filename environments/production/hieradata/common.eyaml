@@ -2,26 +2,42 @@
 classes:
   -  foodity-common
   -  foodity-puppet
-  -  foodity-ssh
+  -  foodity-timkayaws
 
-foodity-ssh::username: 'root'
-foodity-ssh::server_list:
-  - git.foodity.com
-  - github.com
-
-ssh_git_remote: 'git@git.foodity.com:claudio.benfatto/puppet-automation.git'
+###########################################################################################################
+###################################### AMAZON CONFIGURATION ###############################################
+###########################################################################################################
 
 aws_region: 'eu-west-1'
 
-aws_access_key_id: ENC[PKCS7,MIIBiQYJKoZIhvcNAQcDoIIBejCCAXYCAQAxggEhMIIBHQIBADAFMAACAQEwDQYJKoZIhvcNAQEBBQAEggEAi9uPqb7c+5njM3MFtwYjc/GACfIPqDXUAWIfW9esOh/FlgLbXS2qdNvWRLfkli/FRt/jZC+Rov4ENkvnU4A6xAORls/mjg4O3WKdZyyGEWdcC2Ha/fnjd/gaA42/qvoGtACcsjrUFY6cAsRzS1Wrr4kIlyn1jDFehx0rPmqxcmpwE8+gVCKlGDhU/CTEsP9m+hEm4DcofQd6num34AQaP6howEs4Db0bZxeUwPI0W/XAXH22KSHPwD/cvbQmCPQqAgp6dyZKygn1mZkGH7s403USYIMQUlxfVcSfdKhmwNDE0FXIRuh1WHspzxAEr6D9DHUmDlurosGNjR9VHoJndjBMBgkqhkiG9w0BBwEwHQYJYIZIAWUDBAEqBBAZbfLC/wIfOaEOwZSaiwRagCBWJbfz3SvWeAkkypzvI7iFsJcJPFdDVDIA6X1Oji8xVA==]
+aws_access_key_id: ENC[PKCS7,MIIBiQYJKoZIhvcNAQcDoIIBejCCAXYCAQAxggEhMIIBHQIBADAFMAACAQEwDQYJKoZIhvcNAQEBBQAEggEANrLKaNiJ1dt8YeH2tatvryWqfljQwEA8EXxMyBTvFsHbblJ5Utu6kvm1CjBranMNyldttb/YeDXAK2GPo0pvNIK+1nC1bQYI83zCv5mft0ey9cDtvQZNI8s2MVHUaitRjOCT+rtXXZuCnMxQjBNKg9cgK3mG9jIxNfDyam6jtKUKklbYKkKeIU5fb3RZr/nJEAeeNVaoEf5vjB6sN3HfUG5OSOq+HJHxG/KbOFB4StRChy51JOLUWUnFGxbSYJOObqyQc0/4n9FqU4WKeHcCzld0B3Ucrc1b4DMRXT+OlcHFBTCtIStQRYDUyDavaRHtTVqQqixXZcA0VLwmIwSAojBMBgkqhkiG9w0BBwEwHQYJYIZIAWUDBAEqBBBiYhvGYXS8KtiQTeKHAElhgCAya3HVYzfDrNXITwnTM90GlI5vZo2ydzYw7uM6Z2bTdw==]
 
-aws_secret_access_key: ENC[PKCS7,MIIBmQYJKoZIhvcNAQcDoIIBijCCAYYCAQAxggEhMIIBHQIBADAFMAACAQEwDQYJKoZIhvcNAQEBBQAEggEAlS5XUE23/mxkHCtEwwmVUlYsTTq4NiIYRgWxJJP2AHX1HyAjahIe8Ff6aa+BHc/Sy1fx6pS1HlbkYC7IOPCmcXYA5aRS0js4rbWf5NQSd//ZbbPZywAWw1iDi4GD+qpkfTYG2H7V5Hp+gLAq+gDIemfBl9j+60k+EkxwWEDuZ++Ak4Q+osq3L4Q7HaYEYX/yydHbz+swqQ5Lr9k/E7RhJuURo8BGjEoSR82HdoochtgiUTCpe86J5WrLSUM5dS+w+q7NuVFz0rv3PbzdMTPqmBvjq4X5G+Z1zJDRV1hBOiTLaC6cKfmrukfRCfjwpe5FsGXxTlQdtRnPddLPGLQC9jBcBgkqhkiG9w0BBwEwHQYJYIZIAWUDBAEqBBBQ3zu2n6Fm+9YYV0OMJrbhgDAqyTdqb5F6o/ErkARWoUsrZBK9vXnim+WJfw/O7c2ui2nRbFLPNf+tv9kmQqfY3SA=]
+aws_secret_access_key: ENC[PKCS7,MIIBmQYJKoZIhvcNAQcDoIIBijCCAYYCAQAxggEhMIIBHQIBADAFMAACAQEwDQYJKoZIhvcNAQEBBQAEggEAi+cNWUo55HuEzQDRvLl6UX8A7Ckokz5FrhqhZiop2vpEJju2leGHkPZ28OcCcf6MRn9ySukEVUSFCuojYOl7iLfq+PqTkLF/46lcVrKvSAO61+vOXuh9mnGF5S8BucMHWTcB26R1KANOVOPQ2XF5qI0HbWNAqeZCgcWn+xRnP0cJ96NJda33ohnLWmeGWRU9DK679AGVNXJ1qjD6z9XUkeDC6EBkkwn0BY/rk090sdxGqluK2neHWH+LpNDX3/O4lRAGyXtkfo8SWBvm6Ozljvd6EQg0RBRl/O0VdekIVWAOKF67Q7UwpAMM1PUARkb6CyxlCcBQpJADrkx55uHOBDBcBgkqhkiG9w0BBwEwHQYJYIZIAWUDBAEqBBAZC7NLSNVqPLkQme8D6kddgDBzyzqtQDAFKWd4KgWA/VKvWLNukjx13mOzVbXrEJynzZOHxHt2XHK5RjYUGXFzitY=]
 
-private_ssh_key:
-  '/root/.ssh/id_rsa':
+aws_files:
+  '/home/ubuntu/.awssecret':
+    owner: 'ubuntu'
+    group: 'ubuntu'
+    mode: '400'
+    ensure: file
+    content: ENC[PKCS7,MIIBqQYJKoZIhvcNAQcDoIIBmjCCAZYCAQAxggEhMIIBHQIBADAFMAACAQEwDQYJKoZIhvcNAQEBBQAEggEACSoffURvJTQvlAXav2MCtp95R7SwiEkqzW4TE0O5B3Ck0Blw1RLCB8KIC7wn2B+ax1w/nhphV91fsLxHiwv2D/lB1M4FaKUqGMHvymh5JCloj3tHcJTbPIApWkOh3vsiQJS1wgbR4mz6k2ElaTymPzbwkou5hLWqdJfAAu+LyM6+SRG7JAg5hYKMolJIC4EkC4M+VSdWSFgeX3BfQ4UN6mlSjNNLlvsKvbAxgcDyT32V5rtK+IGU7gAUWUAzKWCZqFVAbf1j5SEBB9ppwZ7OAmFa49Odv8pWcRllxI7P4LASz+q2d9o5pucYTOdumkgq6wS+gk6HblBuXLorFvNjCzBsBgkqhkiG9w0BBwEwHQYJYIZIAWUDBAEqBBCEk0u5pWQYa7BSVB77JJHNgEBoJ985aFiFyVSnWU+u7TWH4yk9nB4NNX7R9sV0uZerV5z7PEN4j/WGqUxuiD6ufJCpRSkkLAXVa4soKMdc7LlT]
+
+  '/home/ubuntu/.awsrc':
+    owner: 'ubuntu'
+    group: 'ubuntu'
+    mode: '400'
+    ensure: file
+    content: |
+        --insecure-aws
+        --region=eu-west-1
+
+  '/usr/bin/':
     owner: 'root'
-    mode:  '0600'
-    content: ENC[PKCS7,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] 
+    ensure: 'directory'
+    group: 'root'
+    mode:  '755'
+    recurse: remote
+    source: 'puppet:///modules/foodity-timkayaws/aws'
 
 software:
   pv:
@@ -46,3 +62,4 @@ software:
     ensure: 'latest'
   ruby1.9.1-dev:
     ensure: 'latest'
+

@@ -3,12 +3,14 @@ classes:
  - foodity-mysql
  - foodity-apache
  - foodity-java
+ - foodity-php
 
 
 ##########################MYSQL####################
 
-mysql::server::old_root_password: ENC[PKCS7,MIIBeQYJKoZIhvcNAQcDoIIBajCCAWYCAQAxggEhMIIBHQIBADAFMAACAQEwDQYJKoZIhvcNAQEBBQAEggEARu4/1ubzlVnW71hje8v9m4sdBINKT9qtDUxr7z1Dt8fThwx5qcAih+orpBuPiBdDFCrEtEFrC/+mtgVGz+G+5E2dVo7Sa5TciKBAnlsJ8P3Q9rw3APAzTuhiBh82DBlhwIUQjt5RnDYxnTdt5cv/hbSqGYpJbNWR/2DCwmaoxzjYaAlmbEQ9KoL9KGI2LBVmvKbeD7ug/gyPn4rJ42UZeEAbAIm8oFfEKou/d1XlJraif3HqcPQcH5V/V89VV+j89NGyqWvSQrCK+8WrQYqZvk5L2YBoRa33i24ydw27cdablbsxhmWIWcLG8Fl7yvAhZIzpOIH/zksVat+iqZDTVDA8BgkqhkiG9w0BBwEwHQYJYIZIAWUDBAEqBBAHDaMTiXLtnykUCW0NOjesgBBK8fYTBACLIYw5XD6SXQIt]
-mysql::server::root_password: ENC[PKCS7,MIIBeQYJKoZIhvcNAQcDoIIBajCCAWYCAQAxggEhMIIBHQIBADAFMAACAQEwDQYJKoZIhvcNAQEBBQAEggEARu4/1ubzlVnW71hje8v9m4sdBINKT9qtDUxr7z1Dt8fThwx5qcAih+orpBuPiBdDFCrEtEFrC/+mtgVGz+G+5E2dVo7Sa5TciKBAnlsJ8P3Q9rw3APAzTuhiBh82DBlhwIUQjt5RnDYxnTdt5cv/hbSqGYpJbNWR/2DCwmaoxzjYaAlmbEQ9KoL9KGI2LBVmvKbeD7ug/gyPn4rJ42UZeEAbAIm8oFfEKou/d1XlJraif3HqcPQcH5V/V89VV+j89NGyqWvSQrCK+8WrQYqZvk5L2YBoRa33i24ydw27cdablbsxhmWIWcLG8Fl7yvAhZIzpOIH/zksVat+iqZDTVDA8BgkqhkiG9w0BBwEwHQYJYIZIAWUDBAEqBBAHDaMTiXLtnykUCW0NOjesgBBK8fYTBACLIYw5XD6SXQIt]
+mysql::server::old_root_password: ENC[PKCS7,MIIBeQYJKoZIhvcNAQcDoIIBajCCAWYCAQAxggEhMIIBHQIBADAFMAACAQEwDQYJKoZIhvcNAQEBBQAEggEAgHPGKy9qfkIN0lmBMtNkCEIpzr2PNQ3ulF5CXhOx37Gz642c6RbnDoqUiRQXbPTvtZ6vjHLZ9i7wvhP39mei22N7CVw53QjNDY3y4/VUcWA8ly1x2tnzjw5sU5kt1JKzNiIemqNd/OXRiO28kSvImhglJMkvbCXHBmVhwzz6UTtT0Y7oO1NLRJIr7Ri6PwMsuNVGhRT/uEt8xEBXzcToxg51SmpTwuIZgylCaYhkzsS5oNPseRAvnNaoJ1IT4uWxdvlHUk/F1NPTfIhEG+EXUx5levpY2YIcG4OJ42ISqdeZI7GPV9GDCALdzLL2MDi3aT6CrGnwbGDmmL5wbh1uvTA8BgkqhkiG9w0BBwEwHQYJYIZIAWUDBAEqBBAyf8eLm0jHMznhcJqCizkzgBBMzn0jmGn4FBc/qiu0xI7E]
+mysql::server::root_password: ENC[PKCS7,MIIBeQYJKoZIhvcNAQcDoIIBajCCAWYCAQAxggEhMIIBHQIBADAFMAACAQEwDQYJKoZIhvcNAQEBBQAEggEAgHPGKy9qfkIN0lmBMtNkCEIpzr2PNQ3ulF5CXhOx37Gz642c6RbnDoqUiRQXbPTvtZ6vjHLZ9i7wvhP39mei22N7CVw53QjNDY3y4/VUcWA8ly1x2tnzjw5sU5kt1JKzNiIemqNd/OXRiO28kSvImhglJMkvbCXHBmVhwzz6UTtT0Y7oO1NLRJIr7Ri6PwMsuNVGhRT/uEt8xEBXzcToxg51SmpTwuIZgylCaYhkzsS5oNPseRAvnNaoJ1IT4uWxdvlHUk/F1NPTfIhEG+EXUx5levpY2YIcG4OJ42ISqdeZI7GPV9GDCALdzLL2MDi3aT6CrGnwbGDmmL5wbh1uvTA8BgkqhkiG9w0BBwEwHQYJYIZIAWUDBAEqBBAyf8eLm0jHMznhcJqCizkzgBBMzn0jmGn4FBc/qiu0xI7E]
+
 mysql::server::config_file: '/etc/mysql/my.cnf'
 mysql::server::manage_config_file: true
  
@@ -28,6 +30,9 @@ mysql::server::users:
 
 #############################APACHE#######################
 
+apache_software:
+  libapache2-mod-jk:
+    ensure: latest
 
 apache_folders:
     '/var/www/service':
@@ -68,3 +73,24 @@ apache_vhosts:
       - 'upload_tmp_dir /var/www/service/tmp'
       - 'register_globals off'
     require: 'File[/var/www/service/www/public]'
+
+
+########################################################PHP#####################################
+
+php_software:
+  php5-curl:
+    ensure: latest
+  php5-mcrypt:
+    ensure: latest
+  php-pear:
+    ensure: latest
+  php5-sqlite:
+    ensure: latest
+  php5-intl:
+    ensure: latest
+  phpmyadmin:
+    ensure: latest
+    require: 
+     -  'Package[mysql-server]'
+     -  'Package[apache2]'
+
