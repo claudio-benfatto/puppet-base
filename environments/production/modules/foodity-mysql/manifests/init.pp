@@ -37,9 +37,10 @@
 #
 class foodity-mysql {
 
+  contain mysql::server
 
-  class { 'mysql::server': 
-  }
+#  class { 'mysql::server': 
+ # }
 
 }
 

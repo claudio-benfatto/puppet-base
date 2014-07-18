@@ -60,6 +60,13 @@ software:
     ensure: 'latest'
   expect:
     ensure: 'latest'
-  ruby1.9.1-dev:
+  ruby1.8-dev:
+    ensure: 'present'
+  ruby1.8:
+    ensure: 'present'
+  ri1.8:
     ensure: 'latest'
-
+  libxslt1-dev:
+    ensure: 'latest'
+  libxml2-dev:
+    ensure: 'latest'

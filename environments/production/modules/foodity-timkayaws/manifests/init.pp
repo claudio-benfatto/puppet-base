@@ -39,29 +39,4 @@ class foodity-timkayaws {
 
   create_resources('file', hiera(aws_files))
 
-
-#file { '/usr/bin/':
-#  owner => 'root',
-#  ensure => directory,
-#  group => 'root',
-#  mode  => 755,
-#  recurse => remote,
-#  source  => 'puppet:///modules/foodity-timkayaws/aws',
-#}
-
-#file { '/home/ubuntu/.awssecret':
-#  owner => 'ubuntu',
-#  group => 'ubuntu',
-#  mode  => 400,
-#  content => hiera(aws_secret),
-#}
-#
-#file { '/home/vagrant/.awsrc':
-#  owner => 'ubuntu',
-#  group => 'ubuntu',
-#  mode  => 400,
-#  content => hiera(aws_src)
-#}
-
-
 }

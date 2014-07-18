@@ -37,6 +37,6 @@
 #
 class foodity-php {
 
-  include foodity-php::packages
+  contain foodity-php::packages
 
 }

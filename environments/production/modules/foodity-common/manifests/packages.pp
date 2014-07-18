@@ -35,10 +35,17 @@ class foodity-common::packages {
     require  => [File["${::root_home}/.aws"], Package['python-pip']],
   }
 
+  package {'nokogiri':
+    ensure => "< 1.6",
+    provider => 'gem',
+    require => [Package['libxslt1-dev'], Package['libxml2-dev']]
+  }
+    
+
   package {'aws-sdk':
     ensure   => present,
     provider => 'gem',
-    require  => [Package['build-essential'], Package['ruby1.9.1-dev']],
+    require  => [Package['build-essential'], Package['nokogiri']],
   }
 
   file {"${::root_home}/.aws":
@@ -63,13 +70,6 @@ class foodity-common::packages {
     owner   => 'root',
     group   => 'root',
     mode    => 0755,
-  }
-
-  exec {"ensure-correct-gem-version":
-    command     => '/usr/sbin/update-alternatives --set gem /usr/bin/gem1.9.1',
-    refreshonly => true,
-    user        => 'root',
-    subscribe   => Package['ruby1.9.1-dev'],
   }
 
 }
