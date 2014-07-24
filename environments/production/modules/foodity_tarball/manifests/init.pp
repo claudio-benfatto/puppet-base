@@ -35,7 +35,7 @@
 #
 # Copyright 2014 Your name here, unless otherwise noted.
 #
-define foodity-tarball(
+define foodity_tarball(
                        $pkg_tgz, 
                        $module_name, 
                        $install_dir

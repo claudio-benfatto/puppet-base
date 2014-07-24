@@ -1,4 +1,4 @@
-class foodity-tarball::params {
+class foodity_tarball::params {
 
   if $pkg_tgz =~ .*\.(gz|tgz)$ {
     $tar_options = "z"

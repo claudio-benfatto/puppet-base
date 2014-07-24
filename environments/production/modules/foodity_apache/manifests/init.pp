@@ -1,15 +1,8 @@
-# == Class: mysql
+# == Class: foodity_apache
 #
-# Full description of class mysql here.
+# Full description of class foodity_apache here.
 #
 # === Parameters
-#
-# Document parameters here.
-#
-# [*sample_parameter*]
-#   Explanation of what this parameter affects and what it defaults to.
-#   e.g. "Specify one or more upstream ntp servers as an array."
-#
 # === Variables
 #
 # Here you should define a list of variables that this module would require.
@@ -23,19 +16,14 @@
 #
 # === Examples
 #
-#  class { mysql:
-#    servers => [ 'pool.ntp.org', 'ntp.local.company.com' ],
-#  }
 #
 # === Authors
 #
-# Author Name <author@domain.com>
 #
 # === Copyright
 #
-# Copyright 2014 Your name here, unless otherwise noted.
 #
-class foodity-apache {
+class foodity_apache {
 
   class {'::apache': 
     mpm_module => 'prefork',

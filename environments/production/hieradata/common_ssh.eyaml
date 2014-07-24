@@ -1,7 +1,7 @@
 ---
 classes:
-  -  foodity-common
-  -  foodity-puppet
+  -  foodity_common
+  -  foodity_puppet
   -  ssh
 
 ###########################################################################################################
@@ -15,8 +15,8 @@ ssh::server_options:
   PermitRootLogin: 'yes'
   Port: '22'
 
-ssh::foodity-knownhosts::username: 'root'
-ssh::foodity-knownhosts::server_list:
+ssh::foodity_knownhosts::username: 'root'
+ssh::foodity_knownhosts::server_list:
   - github.com
   - git.foodity.com
 

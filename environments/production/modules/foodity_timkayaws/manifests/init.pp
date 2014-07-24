@@ -1,6 +1,6 @@
-# == Class: ssh
+# == Class: timkayaws
 #
-# Full description of class ssh here.
+# Full description of class timkayaws here.
 #
 # === Parameters
 #
@@ -23,7 +23,7 @@
 #
 # === Examples
 #
-#  class { ssh:
+#  class { timkayaws:
 #    servers => [ 'pool.ntp.org', 'ntp.local.company.com' ],
 #  }
 #
@@ -35,20 +35,8 @@
 #
 # Copyright 2014 Your name here, unless otherwise noted.
 #
-class ssh::foodity-knownhosts( $username='root', $server_list ) {
-   $group = $username
- 
-    file{ '/tmp/known_hosts.sh' :
-      ensure => present,
-      mode => 0500,
-      content => template('ssh/known_hosts.sh.erb'),
-    }
- 
-    exec{ 'add_known_hosts' :
-      command => "/tmp/known_hosts.sh",
-      path => "/sbin:/usr/bin:/usr/local/bin/:/bin/",
-      provider => shell,
-      user => 'root',
-      require => File["${::ssh::params::ssh_known_hosts}", '/tmp/known_hosts.sh' ]
-    }
+class foodity_timkayaws {
+
+  create_resources('file', hiera(aws_files))
+
 }

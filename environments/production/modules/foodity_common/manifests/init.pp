@@ -35,9 +35,9 @@
 #
 # Copyright 2014 Your name here, unless otherwise noted.
 #
-class foodity-common {
+class foodity_common {
 
-  contain foodity-common::packages
+  contain foodity_common::packages
 
   create_resources('ssh_authorized_key' , hiera(ssh_authorized_keys))
 

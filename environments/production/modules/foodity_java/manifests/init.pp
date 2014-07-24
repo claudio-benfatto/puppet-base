@@ -1,4 +1,17 @@
-class foodity-java {
+#class: foodity_common::packages
+#
+# This class installs java sun
+#
+# Parameters:
+#
+# Actions:
+#   - Install java sun
+#
+# Requires:
+#
+# Sample Usage:
+#
+class foodity_java {
 
   $webupd8src = '/etc/apt/sources.list.d/webupd8team.list'
 

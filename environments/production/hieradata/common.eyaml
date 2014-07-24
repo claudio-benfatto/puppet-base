@@ -1,8 +1,8 @@
 ---
 classes:
-  -  foodity-common
-  -  foodity-puppet
-  -  foodity-timkayaws
+  -  foodity_common
+  -  foodity_puppet
+  -  foodity_timkayaws
 
 ###########################################################################################################
 ###################################### AMAZON CONFIGURATION ###############################################
@@ -37,7 +37,7 @@ aws_files:
     group: 'root'
     mode:  '755'
     recurse: remote
-    source: 'puppet:///modules/foodity-timkayaws/aws'
+    source: 'puppet:///modules/foodity_timkayaws/aws'
 
 
 ###################################################################################################################
