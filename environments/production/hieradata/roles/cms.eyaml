@@ -4,6 +4,7 @@ classes:
  - foodity-apache
  - foodity-java
  - foodity-php
+ - foodity-phantomjs
 
 
 ##########################MYSQL####################
