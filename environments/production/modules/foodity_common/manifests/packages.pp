@@ -1,6 +1,7 @@
 # Class: foodity_common::packages
 #
-# This class sets up the aws keys and installs all the required packages for a typical foodity environment
+# This class sets up the aws keys and installs
+# all the required packages for a typical foodity environment
 #
 # Parameters:
 #

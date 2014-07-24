@@ -15,8 +15,5 @@ class foodity_mysql {
 
   contain mysql::server
 
-#  class { 'mysql::server': 
- # }
-
 }
 

@@ -25,9 +25,9 @@
 #
 class foodity_apache {
 
-  class {'::apache': 
-    mpm_module => 'prefork',
-    default_mods => false,
+  class {'::apache':
+    mpm_module          => 'prefork',
+    default_mods        => false,
     default_confd_files => false,
   }
 
@@ -39,7 +39,7 @@ class foodity_apache {
   class { '::apache::mod::php':
     require => 'Class[Apache::Mod::prefork]'
   }
-  
+
   apache::mod { 'jk':
     require => 'Package[libapache2-mod-jk]'
   }

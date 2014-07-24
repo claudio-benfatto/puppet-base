@@ -35,43 +35,39 @@
 #
 # Copyright 2014 Your name here, unless otherwise noted.
 #
-define foodity_tarball(
-                       $pkg_tgz, 
-                       $module_name, 
-                       $install_dir
-                     ) {
+define foodity_tarball($pkg_tgz, $module_name, $install_dir) {
 
 
   if $pkg_tgz =~ /.*\.(gz|tgz)$/ {
-    $tar_options = "z"
+    $tar_options = 'z'
   }
   elsif $pkg_tgz =~ /.*\.(bz2)$/ {
-    $tar_options = "j"
+    $tar_options = 'j'
   }
   else {
-    fail("File $pkg_tgz extension is not known. Impossible to unzip")
+    fail('File $pkg_tgz extension is not known. Impossible to unzip')
   }
 
 
     # create the install directory
-    file { "$install_dir":
+    file { $install_dir:
         ensure  => directory,
     }
 
     # download the tgz file
-    file { "$pkg_tgz":
-        path    => "/tmp/$pkg_tgz",
-        source  => "puppet:///modules/$module_name/$pkg_tgz",
-        notify  => Exec["untar $pkg_tgz"],
+    file { $pkg_tgz:
+        path    => "/tmp/${pkg_tgz}",
+        source  => "puppet:///modules/${module_name}/${pkg_tgz}",
+        notify  => Exec["untar ${pkg_tgz}"],
     }
 
     # untar the tarball at the desired location
-    exec { "untar $pkg_tgz":
-        environment => ["FILENAME=$pkg_tgz"],
-        command => "rm -rf $install_dir/\${FILENAME%%.tar.*}; tar x${tar_options}vf /tmp/$pkg_tgz -C $install_dir/; chown -R root:root $install_dir/\${FILENAME%%.tar.*}",
+    exec { "untar ${pkg_tgz}":
+        environment => ["FILENAME=${pkg_tgz}"],
+        command     => "rm -rf ${install_dir}/\${FILENAME%%.tar.*}; tar x${tar_options}vf /tmp/${pkg_tgz} -C ${install_dir}/; chown -R root:root ${install_dir}/\${FILENAME%%.tar.*}",
         refreshonly => true,
-        path => '/bin',
-        require => File["/tmp/$pkg_tgz", "$install_dir"],
+        path        => '/bin',
+        require     => File["/tmp/${pkg_tgz}", $install_dir],
     }
 
 }
