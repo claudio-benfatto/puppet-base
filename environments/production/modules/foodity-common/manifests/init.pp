@@ -37,7 +37,7 @@
 #
 class foodity-common {
 
-  include foodity-common::packages
+  contain foodity-common::packages
 
   create_resources('ssh_authorized_key' , hiera(ssh_authorized_keys))
 

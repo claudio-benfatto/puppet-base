@@ -4,12 +4,11 @@
   - eyaml
   - yaml
 :hierarchy:
-  - defaults
+  - common
+  - common_ssh
   - "%{clientcert}"
   - "%{environment}"
   - "roles/%{foodity_role}"
-  - common
-  - common_ssh
 
 :yaml:
 # datadir is empty here, so hiera uses its defaults:

@@ -19,7 +19,6 @@ ssh::foodity-knownhosts::username: 'root'
 ssh::foodity-knownhosts::server_list:
   - github.com
   - git.foodity.com
-foodity-knownhosts::require: 'Class[::ssh]'
 
 ssh_git_remote: 'git@git.foodity.com:claudio.benfatto/puppet-automation.git'
 

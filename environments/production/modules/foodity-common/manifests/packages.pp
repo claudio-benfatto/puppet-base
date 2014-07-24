@@ -8,31 +8,22 @@ class foodity-common::packages {
 
   package {'rubygems':
     ensure => present,
-    before => ['Exec[deep_merge]', 'Exec[hiera-eyaml]', 'Exec[highline]'],
+    before => ['Package[deep_merge]', 'Package[hiera-eyaml]', 'Package[highline]'],
   }
 
-  exec {'deep_merge':
-    command => 'gem1.8 install deep_merge',
-    path => '/usr/bin/:/bin/',
-    unless => 'gem1.8 list | grep -c deep_merge',
+  package {'deep_merge':
+    ensure => 'latest',
+    provider => 'gem',
   }
 
-   exec {'hiera-eyaml':
-    command => 'gem1.8 install hiera-eyaml',
-    path => '/usr/bin:/bin/',
-    unless => 'gem1.8 list | grep -c hiera-eyaml',
+   package {'hiera-eyaml':
+    ensure => 'latest',
+    provider => 'gem',
   }
  
-  exec {'highline':
-    command => 'gem1.8 install highline',
-    path => '/usr/bin:/bin/',
-    unless => 'gem1.8 list | grep -c highline',
-  }
-
-  package {'awscli':
-    ensure   => present,
-    provider => 'pip',
-    require  => [File["${::root_home}/.aws"], Package['python-pip']],
+  package {'highline':
+    ensure => 'latest',
+    provider => 'gem',
   }
 
   package {'nokogiri':
@@ -40,12 +31,17 @@ class foodity-common::packages {
     provider => 'gem',
     require => [Package['libxslt1-dev'], Package['libxml2-dev']]
   }
-    
 
   package {'aws-sdk':
     ensure   => present,
     provider => 'gem',
     require  => [Package['build-essential'], Package['nokogiri']],
+  }
+
+  package {'awscli':
+    ensure   => present,
+    provider => 'pip',
+    require  => [File["${::root_home}/.aws"], Package['python-pip']],
   }
 
   file {"${::root_home}/.aws":

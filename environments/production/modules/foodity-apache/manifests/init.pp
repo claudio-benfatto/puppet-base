@@ -44,12 +44,14 @@ class foodity-apache {
   }
 
   include apache::mod::rewrite
-  class { '::apache::mod::php':
-    require => 'Class[Apache::Mod::prefork]'
-  }
   include apache::mod::proxy
   include apache::mod::status
   include apache::mod::ssl
+
+  class { '::apache::mod::php':
+    require => 'Class[Apache::Mod::prefork]'
+  }
+  
   apache::mod { 'jk':
     require => 'Package[libapache2-mod-jk]'
   }
