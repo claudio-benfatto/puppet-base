@@ -37,7 +37,6 @@
 #
 define foodity_tarball($pkg_tgz, $module_name, $install_dir) {
 
-
   if $pkg_tgz =~ /.*\.(gz|tgz)$/ {
     $tar_options = 'z'
   }
@@ -48,11 +47,12 @@ define foodity_tarball($pkg_tgz, $module_name, $install_dir) {
     fail('File $pkg_tgz extension is not known. Impossible to unzip')
   }
 
-
-    # create the install directory
+  
+  if ! defined(File[$install_dir]) {
     file { $install_dir:
-        ensure  => directory,
+      ensure => directory
     }
+  }
 
     # download the tgz file
     file { $pkg_tgz:

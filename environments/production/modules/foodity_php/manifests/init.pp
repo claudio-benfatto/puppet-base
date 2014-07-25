@@ -13,6 +13,9 @@
 #
 class foodity_php {
 
+  include foodity_mysql
+  include foodity_apache
+
   contain foodity_php::packages
 
 }

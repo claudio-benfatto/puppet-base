@@ -14,6 +14,9 @@
 #
 class foodity_puppet {
 
+  include ssh
+  include foodity_common
+
   $ssh_git_remote = hiera('ssh_git_remote')
   create_resources('ssh::server::host_key', hiera(host_ssh_keys))
 

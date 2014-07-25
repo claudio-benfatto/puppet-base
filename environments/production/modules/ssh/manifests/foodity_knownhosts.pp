@@ -37,19 +37,23 @@
 #
 class ssh::foodity_knownhosts( $username='root', $server_list=[] ) {
 
+  include ssh::params
+
   $group = $username
 
   file{ '/tmp/known_hosts.sh' :
     ensure  => present,
     mode    => '0500',
     content => template('ssh/known_hosts.sh.erb'),
+    notify  => Exec['add_known_hosts'],
   }
 
   exec{ 'add_known_hosts' :
-    command  => '/tmp/known_hosts.sh',
-    path     => '/sbin:/usr/bin:/usr/local/bin/:/bin/',
-    provider => 'shell',
-    user     => 'root',
-    require  => File[$::ssh::params::ssh_known_hosts, '/tmp/known_hosts.sh' ]
+    command     => '/tmp/known_hosts.sh',
+    path        => '/sbin:/usr/bin:/usr/local/bin/:/bin/',
+    provider    => 'shell',
+    user        => 'root',
+    refreshonly => true,
+    require     => File[$::ssh::params::ssh_known_hosts, '/tmp/known_hosts.sh' ],
   }
 }

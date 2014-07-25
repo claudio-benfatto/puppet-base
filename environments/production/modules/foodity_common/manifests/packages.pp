@@ -45,7 +45,7 @@ class foodity_common::packages {
   }
 
   package {'nokogiri':
-    ensure   => '< 1.6',
+    ensure   => '1.5.11',
     provider => 'gem',
     require  => [Package['libxslt1-dev'], Package['libxml2-dev']]
   }
