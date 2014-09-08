@@ -37,5 +37,6 @@ ssh_authorized_keys:
     key: 'AAAAB3NzaC1yc2EAAAADAQABAAABAQClgQGKSedjskrhXyCvTIhzZB1bWOurt2yfnrfNwO6s5fQQEQIZieSA+3WPCwZTbMJIro8NfVZzUgjP0QUEymDh+lsFPJW41eXCtkaOJbHGxQb8AuaDpocB19dMfzBoK/chlw0w8xiBfTRnCJeOZ8wvr1acKKD7wYo1ydL5W3pOJk45/4qZkREtgIuGSzi7InS/4odcA/msDukVF+Unken2Wc4H+a13i1KVc5RbOHNyCHfJDQRAz34mKdcSTNbWTubAm0xne/iB2AV8jJEgoAEr6Tn1oYU9k3bFEuRS2Vg6Jrtazv+QHASHTcfVSZbxbgg/eIO+O8nlRsRoV89b/jnp'
     user: 'ubuntu'
     type: 'ssh-rsa'
+    require: User[ubuntu]
 
 

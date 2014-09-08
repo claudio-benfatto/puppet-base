@@ -15,10 +15,15 @@ class foodity_java {
 
   $webupd8src = '/etc/apt/sources.list.d/webupd8team.list'
 
+  package { 'python-software-properties':
+        ensure   => present,
+  }
+
   exec {'add-webupd8-repo':
         command => 'add-apt-repository -y ppa:webupd8team/java',
         path    => '/bin/:/usr/bin/',
         unless  => 'update-alternatives --list java|grep java-7-oracle 2>/dev/null',
+        require => Package['python-software-properties'],
   }
 
   exec { 'add-webupd8-key':
