@@ -21,6 +21,9 @@ aws_files:
     mode: '400'
     ensure: file
     content: ENC[PKCS7,MIIBqQYJKoZIhvcNAQcDoIIBmjCCAZYCAQAxggEhMIIBHQIBADAFMAACAQEwDQYJKoZIhvcNAQEBBQAEggEACSoffURvJTQvlAXav2MCtp95R7SwiEkqzW4TE0O5B3Ck0Blw1RLCB8KIC7wn2B+ax1w/nhphV91fsLxHiwv2D/lB1M4FaKUqGMHvymh5JCloj3tHcJTbPIApWkOh3vsiQJS1wgbR4mz6k2ElaTymPzbwkou5hLWqdJfAAu+LyM6+SRG7JAg5hYKMolJIC4EkC4M+VSdWSFgeX3BfQ4UN6mlSjNNLlvsKvbAxgcDyT32V5rtK+IGU7gAUWUAzKWCZqFVAbf1j5SEBB9ppwZ7OAmFa49Odv8pWcRllxI7P4LASz+q2d9o5pucYTOdumkgq6wS+gk6HblBuXLorFvNjCzBsBgkqhkiG9w0BBwEwHQYJYIZIAWUDBAEqBBCEk0u5pWQYa7BSVB77JJHNgEBoJ985aFiFyVSnWU+u7TWH4yk9nB4NNX7R9sV0uZerV5z7PEN4j/WGqUxuiD6ufJCpRSkkLAXVa4soKMdc7LlT]
+    require:
+      - User[ubuntu]
+      - File[/home/ubuntu]
 
   '/home/ubuntu/.awsrc':
     owner: 'ubuntu'
@@ -30,6 +33,9 @@ aws_files:
     content: |
         --insecure-aws
         --region=eu-west-1
+    require:
+      - User[ubuntu]
+      - File[/home/ubuntu]
 
   '/usr/bin/':
     owner: 'root'

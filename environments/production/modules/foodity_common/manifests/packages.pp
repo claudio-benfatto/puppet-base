@@ -32,17 +32,17 @@ class foodity_common::packages {
   }
 
   package {'deep_merge':
-    ensure   => 'latest',
+    ensure   => '1.0.1',
     provider => 'gem',
   }
 
   package {'hiera-eyaml':
-    ensure   => 'latest',
+    ensure   => '2.0.3',
     provider => 'gem',
   }
 
   package {'highline':
-    ensure   => 'latest',
+	    ensure   => '1.6.21',
     provider => 'gem',
   }
 
