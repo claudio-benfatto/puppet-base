@@ -39,21 +39,10 @@ class foodity_common {
 
   contain foodity_common::packages
 
-  user { 'ubuntu':
-      name       => 'ubuntu',
-      ensure     => 'present',
-      home       => '/home/ubuntu',
-      managehome => true,
-      shell      => '/bin/sh',
-  }
+  create_resources('@foodity_common::user', hiera(common_users))
+  Foodity_common::User <||>
 
-  file { '/home/ubuntu/.ssh':
-       ensure    => 'directory',
-       mode      => '0755',
-       owner     => 'ubuntu',
-       require   => User['ubuntu'],
-  }
-
-  create_resources('ssh_authorized_key' , hiera(ssh_authorized_keys))
+  create_resources('@group', hiera(common_groups))
+  Group <||>
 
 }

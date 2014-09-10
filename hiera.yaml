@@ -6,6 +6,7 @@
 :hierarchy:
   - common
   - common_ssh
+  - common_user
   - "%{clientcert}"
   - "%{environment}"
   - "roles/%{foodity_role}"

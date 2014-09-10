@@ -38,5 +38,3 @@ ssh_authorized_keys:
     user: 'ubuntu'
     type: 'ssh-rsa'
     require: User[ubuntu]
-
-

@@ -1,0 +1,35 @@
+---
+
+classes:
+  -  foodity_common
+
+common_users:
+  claudio.benfatto:
+    uid: 40000,
+    comment: 'Claudio Benfatto'
+    password: $1$V.L5ADcw$SY4xFBe1sFDSsb1ysG80O/
+    groups: admin
+    ssh_auth_key: 'AAAAB3NzaC1yc2EAAAADAQABAAABAQClgQGKSedjskrhXyCvTIhzZB1bWOurt2yfnrfNwO6s5fQQEQIZieSA+3WPCwZTbMJIro8NfVZzUgjP0QUEymDh+lsFPJW41eXCtkaOJbHGxQb8AuaDpocB19dMfzBoK/chlw0w8xiBfTRnCJeOZ8wvr1acKKD7wYo1ydL5W3pOJk45/4qZkREtgIuGSzi7InS/4odcA/msDukVF+Unken2Wc4H+a13i1KVc5RbOHNyCHfJDQRAz34mKdcSTNbWTubAm0xne/iB2AV8jJEgoAEr6Tn1oYU9k3bFEuRS2Vg6Jrtazv+QHASHTcfVSZbxbgg/eIO+O8nlRsRoV89b/jnp'
+
+  zaid:
+    uid: 40001,
+    comment: 'Zaid Sulaiman'
+    groups: admin
+
+  glen:
+    uid: 40002,
+    comment: 'Glen Searle'
+    groups: admin
+
+common_groups:
+  admin:
+    gid: 42000
+
+sudo::purge: false
+sudo::config_file_replace: false
+
+sudo::configs:
+  'admin':
+    'content'   : "%admin ALL=(ALL) ALL"
+    'priority'  : 10
+
