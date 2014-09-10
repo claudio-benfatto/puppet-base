@@ -23,40 +23,40 @@ class foodity_common::packages {
 
   create_resources('package', hiera_hash('software'))
 
-#  package {'rubygems':
-#    ensure => present,
-#    before => [ 'Package[deep_merge]',
-#                'Package[hiera-eyaml]',
-#                'Package[highline]'
-#              ],
-#  }
+  package {'rubygems':
+    ensure => present,
+    before => [ 'Package[deep_merge]',
+                'Package[hiera-eyaml]',
+                'Package[highline]'
+              ],
+  }
 
-#  package {'deep_merge':
-#    ensure   => 'latest',
-#    provider => 'gem',
-#  }
+  package {'deep_merge':
+    ensure   => 'latest',
+    provider => 'gem',
+  }
 
-#  package {'hiera-eyaml':
-#    ensure   => 'latest',
-#    provider => 'gem',
-#  }
+  package {'hiera-eyaml':
+    ensure   => 'latest',
+    provider => 'gem',
+  }
 
-#  package {'highline':
-#    ensure   => 'latest',
-#    provider => 'gem',
-#  }
+  package {'highline':
+    ensure   => 'latest',
+    provider => 'gem',
+  }
 
-#  package {'nokogiri':
-#    ensure   => '1.5.11',
-#    provider => 'gem',
-#    require  => [Package['libxslt1-dev'], Package['libxml2-dev']]
-#  }
+  package {'nokogiri':
+    ensure   => '1.5.11',
+    provider => 'gem',
+    require  => [Package['libxslt1-dev'], Package['libxml2-dev']]
+  }
 
-#  package {'aws-sdk':
-#    ensure   => present,
-#    provider => 'gem',
-#    require  => [Package['build-essential'], Package['nokogiri']],
-#  }
+  package {'aws-sdk':
+    ensure   => present,
+    provider => 'gem',
+    require  => [Package['build-essential'], Package['nokogiri']],
+  }
 
   rvm_system_ruby {
     'ruby-1.9.3-p547':
