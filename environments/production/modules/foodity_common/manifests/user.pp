@@ -36,21 +36,20 @@
 # Copyright 2014 Your name here, unless otherwise noted.
 #
 define foodity_common::user (
-                         $uid,
-                         $gid          = undef,
-                         $group        = undef,
-                         $shell        = undef,
-                         $home         = undef,
-                         $ensure       = 'present',
-                         $managehome   = true,
-                         $manage_ssh   = true,
-                         $comment      = 'puppet-managed user',
-                         $groups       = undef,
-                         $password     = undef,
-                         $mode         = undef,
-                         $ssh_auth_key = undef,
-                         $create_group = true,
-                         $ssh_key_type = undef,
+                         $uid           = undef,
+                         $gid           = undef,
+                         $group         = undef,
+                         $shell         = undef,
+                         $home          = undef,
+                         $ensure        = 'present',
+                         $managehome    = true,
+                         $manage_ssh    = true,
+                         $comment       = 'puppet-managed user',
+                         $groups        = undef,
+                         $password      = undef,
+                         $mode          = undef,
+                         $ssh_auth_keys = undef,
+                         $create_group  = true,
  ) {
 
   include sudo
@@ -156,20 +155,16 @@ define foodity_common::user (
    }
   }
 
- if $ssh_key_type {
-   $my_ssh_key_type = ssh_key_type
- } else {
-   $my_ssh_key_type = 'ssh-rsa'
- }
 
- if $ssh_auth_key {
-   ssh_authorized_key { $name:
-     ensure     => 'present',
-     user       => $name,
-     key        => $ssh_auth_key,
-     type       => $my_ssh_key_type,
-     require    => File["${myhome}/.ssh"],
+
+ if $ssh_auth_keys {
+   
+  $defaults = {
+    'user'  => "${name}",
   }
+
+  create_resources(ssh_authorized_key, $ssh_auth_keys, $defaults)
+
  }
 
 }
