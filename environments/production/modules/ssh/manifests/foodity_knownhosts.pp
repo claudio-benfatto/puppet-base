@@ -52,7 +52,7 @@ class ssh::foodity_knownhosts( $username='root', $server_list=[] ) {
     command     => '/tmp/known_hosts.sh',
     path        => '/sbin:/usr/bin:/usr/local/bin/:/bin/',
     provider    => 'shell',
-    user        => 'root',
+    user        => $username,
     refreshonly => true,
     require     => File[$::ssh::params::ssh_known_hosts, '/tmp/known_hosts.sh' ],
   }
