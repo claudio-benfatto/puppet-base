@@ -18,7 +18,7 @@ class foodity_puppet {
   include foodity_common
 
   $ssh_git_remote = hiera('ssh_git_remote')
-  create_resources('ssh::server::host_key', hiera(host_ssh_keys))
+  create_resources('ssh::server::host_key', hiera(host_ssh_key))
 
 
   file { '/usr/local/bin/papply':
@@ -45,7 +45,7 @@ class foodity_puppet {
     command => '/usr/local/bin/pull-updates',
     minute  => '*/10',
     hour    => '*',
-    require => ['Exec[set-git-remote]', 'File[/root/.ssh/id_rsa]', 'Exec[add_known_hosts]' ]
+    require => ['Exec[set-git-remote]', 'Sshkey[known_git.foodity.com_1]', 'Sshkey[known_git.foodity.com_2]']
   }
 
 }

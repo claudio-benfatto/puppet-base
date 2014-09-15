@@ -6,7 +6,7 @@ class ssh::client(
 
   include ssh::client::install
   include ssh::client::config
-  include ssh::foodity_knownhosts
+  include ssh::knownhosts
 
   anchor { 'ssh::client::start': }
   anchor { 'ssh::client::end': }
@@ -14,6 +14,6 @@ class ssh::client(
   Anchor['ssh::client::start'] ->
   Class['ssh::client::install'] ->
   Class['ssh::client::config'] ->
-  Class['ssh::foodity_knownhosts'] ->
+  Class['ssh::knownhosts'] ->
   Anchor['ssh::client::end']
 }

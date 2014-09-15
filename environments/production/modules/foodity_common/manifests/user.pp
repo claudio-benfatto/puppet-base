@@ -155,8 +155,6 @@ define foodity_common::user (
    }
   }
 
-
-
  if $ssh_auth_keys {
    
   $defaults = {
