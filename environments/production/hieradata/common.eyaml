@@ -79,3 +79,52 @@ software:
     ensure: 'latest'
   libxml2-dev:
     ensure: 'latest'
+  rubygems:
+    ensure: 'present'
+    before: [ 'Package[deep_merge]', 'Package[hiera-eyaml]', 'Package[highline]']
+  deep_merge:
+    ensure: '1.0.1'
+    provider: 'gem'
+  hiera-eyaml:
+    ensure: '2.0.3'
+    provider: 'gem'
+  highline:
+    ensure: '1.6.21'
+    provider: 'gem'
+  nokogiri: 
+    ensure: '1.5.11'
+    provider: 'gem'
+    require: [ 'Package[libxslt1-dev]', 'Package[libxml2-dev]' ]
+  aws-sdk:
+    ensure: present
+    provider: gem
+    require: [ 'Package[build-essential]', 'Package[nokogiri]' ]
+
+######################################## RUBY CONFIGURATION ###########################################
+
+rvm_system_rubys:
+  'ruby-1.9.3-p547':
+    ensure: 'present'
+    default_use: true
+
+rvm_gemsets:
+  'ruby-1.9.3-p547@puppet':
+    ensure: present
+    require: 'Rvm_system_ruby[ruby-1.9.3-p547]'
+
+rvm_gems:
+  'ruby-1.9.3-p547@puppet/deep_merge':
+    ensure: '1.0.1'
+    require: 'Rvm_system_ruby[ruby-1.9.3-p547]'
+  'ruby-1.9.3-p547@puppet/hiera-eyaml':
+    ensure: '2.0.3'
+    require: 'Rvm_system_ruby[ruby-1.9.3-p547]'
+  'ruby-1.9.3-p547@puppet/highline':
+    ensure: '1.6.21'
+    require: 'Rvm_system_ruby[ruby-1.9.3-p547]'
+  'ruby-1.9.3-p547@puppet/nokogiri':
+    ensure: '1.6.3.1'
+    require: 'Rvm_system_ruby[ruby-1.9.3-p547]'
+  'ruby-1.9.3-p547@puppet/aws-sdk':
+    ensure: '1.52.0'
+    require: 'Rvm_system_ruby[ruby-1.9.3-p547]'
