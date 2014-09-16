@@ -97,7 +97,6 @@ define foodity_common::user (
     $mymode = '0700'
   }
 
-
   user { $name:
     ensure     => $ensure,
     uid        => $uid,
@@ -109,7 +108,6 @@ define foodity_common::user (
     home       => $myhome,
     comment    => $comment,
   }
-
 
   if $create_group {
     group { $name:
