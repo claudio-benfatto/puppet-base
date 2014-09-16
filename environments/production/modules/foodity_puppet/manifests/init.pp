@@ -28,10 +28,11 @@ class foodity_puppet {
 
 
   vcsrepo { '/etc/puppet':
-    ensure  => 'present',
+    ensure   => 'present',
     provider => 'git',
     source   => 'git@git.foodity.com:claudio.benfatto/puppet-automation.git',
     revision => $git_manifest_revision,
+    require  => 'File[/root/.ssh/id_rsa]',
   }
 
   file { '/usr/local/bin/papply':
