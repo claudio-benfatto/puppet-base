@@ -20,12 +20,18 @@ class foodity_puppet {
   $ssh_git_remote = hiera('ssh_git_remote')
   create_resources('ssh::server::host_key', hiera(host_ssh_key))
 
+  if $::manifest_revision {
+    $git_manifest_revision = $::manifest_revision
+  }
+  else
+    { fail("Unable to find manifest_revion variable among puppet facts. Aborting") }
+
 
   vcsrepo { '/etc/puppet':
     ensure  => 'present',
     provider => 'git',
     source   => 'git@git.foodity.com:claudio.benfatto/puppet-automation.git',
-    revision => 'develop',
+    revision => $git_manifest_revision,
   }
 
   file { '/usr/local/bin/papply':
