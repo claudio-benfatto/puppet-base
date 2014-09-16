@@ -1,0 +1,30 @@
+---
+
+classes:
+  - foodity_jenkins
+
+jenkins::repo:                false
+jenkins::install_java:        false
+jenkins::configure_firewall:  false
+
+jenkins::slave::install_java: false
+jenkins::slave::manage_slave_user: false
+jenkins::slave::slave_user: 'jenkins'
+jenkins::slave::slave_home: '/var/lib/jenkins'
+
+common_users:
+  
+  jenkins:
+    uid: 80001,
+    comment: 'jenkins user'
+    password: $1$V.L5ADcw$SY4xFBe1sFDSsb1ysG80O/
+    home: '/var/lib/jenkins'
+    groups: jenkins
+    ssh_auth_keys:
+      jenkins-master:
+         type: 'ssh-rsa' 
+         key: 'AAAAB3NzaC1yc2EAAAADAQABAAABAQCl5KwLzwo9tq+AwViQM7CcIj3JDjOIDT4fsQCpPqiJ9X3GahMhLQbu6ie0ZPLhlEI+UXNap4cxYDHqEAten5mXMc8LW1FXqqMjEGTUYzPx04ywdfuy9Zz9CNtYoLjEks5+K4Bf+xp4FhxB9O9x6aSHMcsI3GtovQWojaXtzp9j7AN2CjDF54IcOFyvr/gY/7/s5GiuEYxbWUtnfg3gNU0r6/X+1gRj3o5Ek+6NE8Umu98Tcg4eUUXEZT33L3B10G4HZpEvY3c7r9Opfd5xSIqOIGKm+E8uxVWU32E0+tOiib9Q9e1Gu/QszeJluJtPP2OvhzQwCh6D5/61i8kfSqZH'
+
+
+
+
