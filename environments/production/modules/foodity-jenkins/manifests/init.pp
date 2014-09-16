@@ -38,9 +38,7 @@
 class foodity-jenkins {
 
   include foodity_java
-  include jenkins
   include jenkins::slave
 
-  Class['jenkins']        -> Class['foodity_java']
-  Class['jenkins::slave'] -> User['jenkins']
+  Class['jenkins::slave'] -> Class['foodity_java']
 }

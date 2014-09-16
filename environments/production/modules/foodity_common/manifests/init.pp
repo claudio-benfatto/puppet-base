@@ -39,10 +39,10 @@ class foodity_common {
 
   contain foodity_common::packages
 
-  create_resources('@foodity_common::user', hiera(common_users))
+  create_resources('@foodity_common::user', hiera_hash(common_users))
   Foodity_common::User <||>
 
-  create_resources('@group', hiera(common_groups))
+  create_resources('@group', hiera_hash(common_groups))
   Group <||>
 
 }

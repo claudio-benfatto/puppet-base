@@ -21,7 +21,9 @@ class foodity_common::packages {
   $aws_access_key_id = hiera('aws_access_key_id')
   $aws_secret_access_key = hiera('aws_secret_access_key')
 
-  create_resources('package', hiera_hash('software'))
+  create_resources('@package', hiera_hash('software'))
+  Package <||>
+
 
 #  package {'rubygems':
 #    ensure => present,
