@@ -15,7 +15,9 @@ class foodity_php ( $with_mysql  = false,
                     $with_apache = false ) {
 
   if $with_mysql {
-    include foodity_mysql
+    class { 'foodity_mysql':  
+             with_mysql_client => true,
+    }
   }
   
   if $with_apache {
