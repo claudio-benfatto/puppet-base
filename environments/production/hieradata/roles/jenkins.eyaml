@@ -6,6 +6,9 @@ classes:
   - foodity-postgresql
   - foodity-rabbitmq
   - foodity-nodejs
+  - locales
+
+locales::locales: [ 'en_US en_US.UTF-8', 'en_GB en_GB.UTF-8' ]
 
 jenkins::repo:                false
 jenkins::install_java:        false
