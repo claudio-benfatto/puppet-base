@@ -3,6 +3,7 @@
 classes:
   - foodity-jenkins
   - foodity_php
+  - foodity_mysql
   - foodity-postgresql
   - foodity-rabbitmq
   - foodity-nodejs

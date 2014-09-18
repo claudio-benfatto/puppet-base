@@ -11,18 +11,17 @@
 #
 # Sample Usage:
 #
-class foodity_php ( $with_mysql  = false,
-                    $with_apache = false ) {
+class foodity_php ( ) {
 
-  if $with_mysql {
-    class { 'foodity_mysql':  
-             with_mysql_client => true,
-    }
-  }
+#  if $with_mysql {
+#    class { 'foodity_mysql':  
+#             with_mysql_client => true,
+#    }
+#  }
   
-  if $with_apache {
-    include foodity_apache
-  }
+#  if $with_apache {
+#    include foodity_apache
+#  }
 
   contain foodity_php::packages
 

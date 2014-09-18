@@ -11,9 +11,9 @@
 #
 # Sample Usage:
 #
-class foodity_mysql ( $with_mysql_client = false) {
+class foodity_mysql ( $with_mysql_client = true) {
 
-  contain mysql::server
+  include mysql::server
 
   if $with_mysql_client {
     include mysql::client
