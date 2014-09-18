@@ -113,16 +113,16 @@ rvm_gemsets:
 rvm_gems:
   'ruby-1.9.3-p547@puppet/deep_merge':
     ensure: '1.0.1'
-    require: 'Rvm_gemset[ruby-1.9.3-p547@puppet]'
+    require: [ 'Rvm_system_ruby[ruby-1.9.3-p547]',  'Rvm_gemset[ruby-1.9.3-p547@puppet]' ]
   'ruby-1.9.3-p547@puppet/hiera-eyaml':
     ensure: '2.0.3'
-    require: 'Rvm_gemset[ruby-1.9.3-p547@puppet]'
+    require: [ 'Rvm_system_ruby[ruby-1.9.3-p547]',  'Rvm_gemset[ruby-1.9.3-p547@puppet]' ]
   'ruby-1.9.3-p547@puppet/highline':
     ensure: '1.6.21'
-    require: 'Rvm_gemset[ruby-1.9.3-p547@puppet]'
+    require: [ 'Rvm_system_ruby[ruby-1.9.3-p547]',  'Rvm_gemset[ruby-1.9.3-p547@puppet]' ]
   'ruby-1.9.3-p547@puppet/nokogiri':
     ensure: '1.6.3.1'
-    require: 'Rvm_gemset[ruby-1.9.3-p547@puppet]'
+    require: [ 'Rvm_system_ruby[ruby-1.9.3-p547]',  'Rvm_gemset[ruby-1.9.3-p547@puppet]' ]
   'ruby-1.9.3-p547@puppet/aws-sdk':
     ensure: '1.52.0'
-    require: 'Rvm_gemset[ruby-1.9.3-p547@puppet]'
+    require: [ 'Rvm_system_ruby[ruby-1.9.3-p547]',  'Rvm_gemset[ruby-1.9.3-p547@puppet]' ]
