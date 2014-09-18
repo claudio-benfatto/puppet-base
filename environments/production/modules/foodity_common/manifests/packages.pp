@@ -79,9 +79,14 @@ class foodity_common::packages {
 
   $rubygems_package_name = 'rubygems'
 
+  notify { "OPERATING SYSTEM $::operatingsystem and OPERATION RELEASE $::operatingsystemrelease": }
+
   case $::operatingsystem {
     'Ubuntu': {
-               if $::operatingsystemrelease == '14.4' {
+
+                notify { "OK UBUNTU": }
+               if $::operatingsystemrelease =~ /^14/ {
+                 notify { "OK UBUNTU AND 14.4": }
                  $rubygems_package_name = 'rubygems-integration'
                }
     }
