@@ -23,7 +23,7 @@ jenkins::slave::enable:     true
 foodity_php::with_mysql: true
 
 
-mysql::server::old_root_password: '0A0662C40EED3D50185D767D84F57730CC7D149A'
+#mysql::server::old_root_password: '0A0662C40EED3D50185D767D84F57730CC7D149A'
 mysql::server::root_password: '0A0662C40EED3D50185D767D84F57730CC7D149A'
   
 mysql::server::config_file: '/etc/mysql/my.cnf'
