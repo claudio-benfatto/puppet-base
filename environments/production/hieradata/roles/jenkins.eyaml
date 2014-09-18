@@ -33,27 +33,23 @@ mysql::server::manage_config_file: true
 mysql::server::databases:
     'service':
       charset: 'utf8'
-      ensure: 'absent'
-  
+      ensure: 'absent' 
+ 
 mysql::server::users:
-#    'root@localhost':
-#      ensure: 'present'
-#      password_hash: '0A0662C40EED3D50185D767D84F57730CC7D149A'
     'claudio@localhost':
       ensure: 'present'
       password_hash: '*7ACE763ED393514FE0C162B93996ECD195FFC4F5'
-    'service@localhost':
-      ensure: 'absent'
-      password_hash: '*C80A94EF37B4CA1599BA47CC95530C43CACD7DA5'
+    'rms_test@localhost':
+      ensure: 'present'
+      password_hash: '*39784DB36DFC8A83DCC2898B08DA8248A31A6C93'
   
-#mysql::server::grants:
-#    'root@localhost/*.*':
-#      ensure: 'present'
-#      options: ['GRANT']
-#      privileges: ['ALL']
-#      table: '*.*'
-#      user: 'root@localhost'
-
+mysql::server::grants:
+    'rms_test@localhost/`rms_test\_%`.*':
+      ensure: 'present'
+      options: ['GRANT']
+      privileges: ['ALL']
+      table: '`rms_test\_%`.*'
+      user: 'rms_test@localhost'
 
 postgresql_roles:
   'jenkins':
