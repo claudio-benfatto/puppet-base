@@ -71,15 +71,12 @@ software:
     ensure: 'latest'
   expect:
     ensure: 'latest'
-  ri1.8:
+  ri:
     ensure: 'latest'
   libxslt1-dev:
     ensure: 'latest'
   libxml2-dev:
     ensure: 'latest'
-  rubygems:
-    ensure: 'present'
-    before: [ 'Package[deep_merge]', 'Package[hiera-eyaml]', 'Package[highline]']
   deep_merge:
     ensure: '1.0.1'
     provider: 'gem'
@@ -114,15 +111,15 @@ rvm_gems:
   'ruby-1.9.3-p547/deep_merge':
     ensure: '1.0.1'
     require: [ 'Rvm_system_ruby[ruby-1.9.3-p547]' ]
-  'ruby-1.9.3-p547@puppet/hiera-eyaml':
+  'ruby-1.9.3-p547/hiera-eyaml':
     ensure: '2.0.3'
     require: [ 'Rvm_system_ruby[ruby-1.9.3-p547]'  ]
-  'ruby-1.9.3-p547@puppet/highline':
+  'ruby-1.9.3-p547/highline':
     ensure: '1.6.21'
     require: [ 'Rvm_system_ruby[ruby-1.9.3-p547]'  ]
-  'ruby-1.9.3-p547@puppet/nokogiri':
+  'ruby-1.9.3-p547/nokogiri':
     ensure: '1.6.3.1'
     require: [ 'Rvm_system_ruby[ruby-1.9.3-p547]'  ]
-  'ruby-1.9.3-p547@puppet/aws-sdk':
+  'ruby-1.9.3-p547/aws-sdk':
     ensure: '1.52.0'
     require: [ 'Rvm_system_ruby[ruby-1.9.3-p547]'  ]

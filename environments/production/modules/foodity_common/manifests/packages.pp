@@ -77,6 +77,29 @@ class foodity_common::packages {
   create_resources('rvm_gemset', hiera_hash('rvm_gemsets'))
   create_resources('rvm_gem', hiera_hash('rvm_gems'))
 
+  $rubygems_package_name = 'rubygems'
+
+  case $::operatingsystem {
+    'Ubuntu': {
+               if $::operatingsystemrelease == '14.4' {
+                 $rubygems_package_name = 'rubygems-integration'
+               }
+    }
+    
+   default: {
+          $rubygems_package_name = 'rubygems'
+        }
+   }
+
+
+  package {'rubygems':
+    name    => $rubygems_package_name ,
+    ensure  => 'present',
+    before  => [ 'Package[deep_merge]', 'Package[hiera-eyaml]', 'Package[highline]' ],
+  }
+
+
+
 #  rvm_gem {
 #    'ruby-1.9.3-p547@puppet/deep_merge':
 #      ensure  => '1.0.1',
@@ -109,7 +132,7 @@ class foodity_common::packages {
 
 
   package { 'docutils':
-    ensure  => '0.11',
+    ensure  => '0.12',
     provider => 'pip',
   }
 
