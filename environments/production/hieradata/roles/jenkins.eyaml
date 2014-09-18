@@ -69,7 +69,7 @@ pg_hba_rules:
     user: 'all'
     address: '127.0.0.1/32'
     auth_method: 'trust'
-    order: '21'
+    order: '021'
 
 rabbitmq::service_manage: false
 rabbitmq::port: '5672'
