@@ -108,10 +108,15 @@ class foodity_common::packages {
 #  }
 
 
+  package { 'docutils':
+    ensure  => '0.11',
+    provider => 'pip',
+  }
+
   package {'awscli':
     ensure   => present,
     provider => 'pip',
-    require  => [File["${::root_home}/.aws"], Package['python-pip']],
+    require  => [File["${::root_home}/.aws"], Package['python-pip'], Package['docutils'] ],
   }
 
   file {"${::root_home}/.aws":

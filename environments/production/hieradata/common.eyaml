@@ -105,7 +105,7 @@ rvm_system_rubys:
     ensure: 'present'
     default_use: true
 
-#rvm_gemsets:
+rvm_gemsets: {}
 #  'ruby-1.9.3-p547':
 #    ensure: present
 #    require: 'Rvm_system_ruby[ruby-1.9.3-p547]'
