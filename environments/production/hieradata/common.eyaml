@@ -77,23 +77,6 @@ software:
     ensure: 'latest'
   libxml2-dev:
     ensure: 'latest'
-  deep_merge:
-    ensure: '1.0.1'
-    provider: 'gem'
-  hiera-eyaml:
-    ensure: '2.0.3'
-    provider: 'gem'
-  highline:
-    ensure: '1.6.21'
-    provider: 'gem'
-  nokogiri: 
-    ensure: '1.5.11'
-    provider: 'gem'
-    require: [ 'Package[libxslt1-dev]', 'Package[libxml2-dev]' ]
-  aws-sdk:
-    ensure: present
-    provider: gem
-    require: [ 'Package[build-essential]', 'Package[nokogiri]' ]
 
 ######################################## RUBY CONFIGURATION ###########################################
 
@@ -123,3 +106,4 @@ rvm_gems:
   'ruby-1.9.3-p547/aws-sdk':
     ensure: '1.52.0'
     require: [ 'Rvm_system_ruby[ruby-1.9.3-p547]'  ]
+
