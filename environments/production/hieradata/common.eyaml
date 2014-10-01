@@ -71,12 +71,12 @@ software:
     ensure: 'latest'
   expect:
     ensure: 'latest'
-  ri:
-    ensure: 'latest'
-  libxslt1-dev:
-    ensure: 'latest'
-  libxml2-dev:
-    ensure: 'latest'
+#  ri:
+#    ensure: 'latest'
+#  libxslt1-dev:
+#    ensure: 'latest'
+#  libxml2-dev:
+#    ensure: 'latest'
 
 ######################################## RUBY CONFIGURATION ###########################################
 
