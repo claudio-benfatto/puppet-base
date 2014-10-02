@@ -9,14 +9,30 @@ classes:
 ###########################################################################################################
   
 ssh::server_options:
+  UsePrivilegeSeparation: 'yes'
+  KeyRegenerationInterval: '3600'
+  ServerKeyBits: '768'
+  SyslogFacility: 'AUTH'
+  LogLevel: 'INFO'
+  LoginGraceTime: '120'
+  StrictModes: 'yes'
   PasswordAuthentication: 'no'
   ChallengeResponseAuthentication: 'no'
-  UsePAM: 'no'
+  PermitEmptyPasswords: 'no'
+  UsePAM: 'yes'
   AllowTcpForwarding: 'no'
   X11Forwarding: 'no'
+  X11DisplayOffset: '10'
+  PrintMotd: 'no'
+  PrintLastLog: 'yes'
+  TCPKeepAlive: 'yes'
   RSAAuthentication: 'yes'
   PubkeyAuthentication: 'yes'
-  PermitRootLogin: 'yes'
+  PermitRootLogin: 'no'
+  IgnoreRhosts: 'yes'
+  RhostsRSAAuthentication: 'no'
+  HostbasedAuthentication: 'no'
+  AcceptEnv: 'LANG LC_*'
   Port: '22'
 
 node_known_hosts:
