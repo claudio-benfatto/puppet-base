@@ -2,7 +2,7 @@
 classes:
   -  foodity_common
   -  foodity_puppet
-  -  foodity_timkayaws
+#  -  foodity_timkayaws
 
 ###########################################################################################################
 ###################################### AMAZON CONFIGURATION ###############################################
@@ -14,34 +14,34 @@ aws_access_key_id: ENC[PKCS7,MIIBiQYJKoZIhvcNAQcDoIIBejCCAXYCAQAxggEhMIIBHQIBADA
 
 aws_secret_access_key: ENC[PKCS7,MIIBmQYJKoZIhvcNAQcDoIIBijCCAYYCAQAxggEhMIIBHQIBADAFMAACAQEwDQYJKoZIhvcNAQEBBQAEggEAi+cNWUo55HuEzQDRvLl6UX8A7Ckokz5FrhqhZiop2vpEJju2leGHkPZ28OcCcf6MRn9ySukEVUSFCuojYOl7iLfq+PqTkLF/46lcVrKvSAO61+vOXuh9mnGF5S8BucMHWTcB26R1KANOVOPQ2XF5qI0HbWNAqeZCgcWn+xRnP0cJ96NJda33ohnLWmeGWRU9DK679AGVNXJ1qjD6z9XUkeDC6EBkkwn0BY/rk090sdxGqluK2neHWH+LpNDX3/O4lRAGyXtkfo8SWBvm6Ozljvd6EQg0RBRl/O0VdekIVWAOKF67Q7UwpAMM1PUARkb6CyxlCcBQpJADrkx55uHOBDBcBgkqhkiG9w0BBwEwHQYJYIZIAWUDBAEqBBAZC7NLSNVqPLkQme8D6kddgDBzyzqtQDAFKWd4KgWA/VKvWLNukjx13mOzVbXrEJynzZOHxHt2XHK5RjYUGXFzitY=]
 
-aws_files:
-  '/home/ubuntu/.awssecret':
-    owner: 'ubuntu'
-    group: 'ubuntu'
-    mode: '400'
-    ensure: file
-    content: ENC[PKCS7,MIIBqQYJKoZIhvcNAQcDoIIBmjCCAZYCAQAxggEhMIIBHQIBADAFMAACAQEwDQYJKoZIhvcNAQEBBQAEggEACSoffURvJTQvlAXav2MCtp95R7SwiEkqzW4TE0O5B3Ck0Blw1RLCB8KIC7wn2B+ax1w/nhphV91fsLxHiwv2D/lB1M4FaKUqGMHvymh5JCloj3tHcJTbPIApWkOh3vsiQJS1wgbR4mz6k2ElaTymPzbwkou5hLWqdJfAAu+LyM6+SRG7JAg5hYKMolJIC4EkC4M+VSdWSFgeX3BfQ4UN6mlSjNNLlvsKvbAxgcDyT32V5rtK+IGU7gAUWUAzKWCZqFVAbf1j5SEBB9ppwZ7OAmFa49Odv8pWcRllxI7P4LASz+q2d9o5pucYTOdumkgq6wS+gk6HblBuXLorFvNjCzBsBgkqhkiG9w0BBwEwHQYJYIZIAWUDBAEqBBCEk0u5pWQYa7BSVB77JJHNgEBoJ985aFiFyVSnWU+u7TWH4yk9nB4NNX7R9sV0uZerV5z7PEN4j/WGqUxuiD6ufJCpRSkkLAXVa4soKMdc7LlT]
+#aws_files:
+#  '/home/ubuntu/.awssecret':
+#    owner: 'ubuntu'
+#    group: 'ubuntu'
+#    mode: '400'
+#    ensure: file
+#    content: ENC[PKCS7,MIIBqQYJKoZIhvcNAQcDoIIBmjCCAZYCAQAxggEhMIIBHQIBADAFMAACAQEwDQYJKoZIhvcNAQEBBQAEggEACSoffURvJTQvlAXav2MCtp95R7SwiEkqzW4TE0O5B3Ck0Blw1RLCB8KIC7wn2B+ax1w/nhphV91fsLxHiwv2D/lB1M4FaKUqGMHvymh5JCloj3tHcJTbPIApWkOh3vsiQJS1wgbR4mz6k2ElaTymPzbwkou5hLWqdJfAAu+LyM6+SRG7JAg5hYKMolJIC4EkC4M+VSdWSFgeX3BfQ4UN6mlSjNNLlvsKvbAxgcDyT32V5rtK+IGU7gAUWUAzKWCZqFVAbf1j5SEBB9ppwZ7OAmFa49Odv8pWcRllxI7P4LASz+q2d9o5pucYTOdumkgq6wS+gk6HblBuXLorFvNjCzBsBgkqhkiG9w0BBwEwHQYJYIZIAWUDBAEqBBCEk0u5pWQYa7BSVB77JJHNgEBoJ985aFiFyVSnWU+u7TWH4yk9nB4NNX7R9sV0uZerV5z7PEN4j/WGqUxuiD6ufJCpRSkkLAXVa4soKMdc7LlT]
    # require: [ 'User[ubuntu]' ]
-    require: [ 'File[/home/ubuntu]' ]
+#    require: [ 'File[/home/ubuntu]' ]
 
-  '/home/ubuntu/.awsrc':
-    owner: 'ubuntu'
-    group: 'ubuntu'
-    mode: '400'
-    ensure: file
-    content: |
-        --insecure-aws
-        --region=eu-west-1
+#  '/home/ubuntu/.awsrc':
+#    owner: 'ubuntu'
+#    group: 'ubuntu'
+#    mode: '400'
+#    ensure: file
+#    content: |
+#        --insecure-aws
+#        --region=eu-west-1
    # require: [ 'User[ubuntu]' ]
-    require: [ 'File[/home/ubuntu]' ]
+#    require: [ 'File[/home/ubuntu]' ]
 
-  '/usr/bin/':
-    owner: 'root'
-    ensure: 'directory'
-    group: 'root'
-    mode:  '755'
-    recurse: remote
-    source: 'puppet:///modules/foodity_timkayaws/aws'
+#  '/usr/bin/':
+#    owner: 'root'
+#    ensure: 'directory'
+#    group: 'root'
+#    mode:  '755'
+#    recurse: remote
+#    source: 'puppet:///modules/foodity_timkayaws/aws'
 
 
 ###################################################################################################################

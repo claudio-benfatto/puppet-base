@@ -12,7 +12,7 @@ common_users:
   claudio:
     uid: 90001,
     comment: 'Claudio Benfatto'
-    password: $1$V.L5ADcw$SY4xFBe1sFDSsb1ysG80O/
+#    password: $1$V.L5ADcw$SY4xFBe1sFDSsb1ysG80O/
     groups: admin
     ssh_auth_keys:
       claudio-as-claudio:
@@ -46,6 +46,6 @@ sudo::config_file_replace: false
 
 sudo::configs:
   'admin':
-    'content'   : "%admin ALL=(ALL) ALL"
+    'content'   : "%admin ALL=(root) ALL"
     'priority'  : 10
 

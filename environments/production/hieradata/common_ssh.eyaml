@@ -9,9 +9,13 @@ classes:
 ###########################################################################################################
   
 ssh::server_options:
-  PasswordAuthentication: 'yes'
+  PasswordAuthentication: 'no'
+  ChallengeResponseAuthentication: 'no'
+  UsePAM: 'no'
   AllowTcpForwarding: 'no'
   X11Forwarding: 'no'
+  RSAAuthentication: 'yes'
+  PubkeyAuthentication: 'yes'
   PermitRootLogin: 'yes'
   Port: '22'
 
