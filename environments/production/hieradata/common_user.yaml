@@ -8,12 +8,23 @@ common_users:
   ubuntu:
     comment: 'Ubuntu'
     groups: admin
-  
+    ssh_auth_keys:
+      claudio-as-ubuntu:
+         type: 'ssh-rsa'
+         key: 'AAAAB3NzaC1yc2EAAAADAQABAAABAQClgQGKSedjskrhXyCvTIhzZB1bWOurt2yfnrfNwO6s5fQQEQIZieSA+3WPCwZTbMJIro8NfVZzUgjP0QUEymDh+lsFPJW41eXCtkaOJbHGxQb8AuaDpocB19dMfzBoK/chlw0w8xiBfTRnCJeOZ8wvr1acKKD7wYo1ydL5W3pOJk45/4qZkREtgIuGSzi7InS/4odcA/msDukVF+Unken2Wc4H+a13i1KVc5RbOHNyCHfJDQRAz34mKdcSTNbWTubAm0xne/iB2AV8jJEgoAEr6Tn1oYU9k3bFEuRS2Vg6Jrtazv+QHASHTcfVSZbxbgg/eIO+O8nlRsRoV89b/jnp'
+      zaid-as-ubuntu:
+         type: 'ssh-rsa'
+         key: 'AAAAB3NzaC1yc2EAAAADAQABAAABAQD+Y8RJW97f1icahm/0846Vn8dZrsN/u+o+Dh1W+CFQZ/XmNTtFIDjzFQQfniih618J0aFhMCXSVQ1LQqfINQwNTOmDOjzXGUaXHkmYzk4JaZ5SUk/F02dG6nIyN8E3MipIwgmab2RH0esohq8YZN+ZeOJ3c2YyoqgjLmkKrknt/lc9Bs46MLPBqU7We31At8aM121frXqym3o1adbjD6P7tB6HqKjW2D1J5Ol3kQoMxpz3dRIXF8iHulrUtFNb8NPcc9celvvAxj5t5EyVORzMgXLirRnUREqJNiijFbB32Mc9LY+0WW4aQcpxHCFxI4/hnLfjnGzwh8LT5KQBrASd'  
+      glen-as-ubuntu:
+         type: 'ssh-rsa'
+         key: 'AAAAB3NzaC1yc2EAAAADAQABAAABAQDMuKiWDH+R/vAVteuLPx01VUJhwSyxX4Bm9BCouKg6ntP85DK6buskQCrsiDxtz6VjESSi4ba9vrlQh+sTa0lp7vdnAwtlGs/pFmZfUjEjcRF+5JzVDPU1+y0/5cSVP2WqZ7miSAJZmGpIitAzkWDJRbZ4GacKFFPn8Q7iPWtZD9CS9oy0wNdwWTH6sM6aVEXHUiBVhcKm5j6Lu92Bf+8Y9eaPdilSzPc/ypRb8IrYc9YwchntCIfXcWo7Dluoy6pmxioK0Kqx2DQSLkqUKia0MF/73AOTLPMjYlOHE6dHJGsKqBXO2YV1lXefb5MsfBKPh39Of+FfUUeMpdE6F7lb'
+
+
   claudio:
     uid: 90001,
     comment: 'Claudio Benfatto'
-#    password: $1$V.L5ADcw$SY4xFBe1sFDSsb1ysG80O/
-    groups: admin
+    password: $6$IgrUE5Q/fbd7s7dQ$IeZZ5OzSbUGZeMOGZqcgbebfrX29p1s/CtAsLm0Jb5OZLaVP.Tdm0toGr7gTOkzvIyf16FV3RDS.74mpWj5IG/
+    groups: 'admin'
     ssh_auth_keys:
       claudio-as-claudio:
          type: 'ssh-rsa' 
