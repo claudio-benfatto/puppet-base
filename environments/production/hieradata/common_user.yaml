@@ -59,4 +59,7 @@ sudo::configs:
   'admin':
     'content'   : "%admin ALL=(root) ALL"
     'priority'  : 10
+  'ubuntu':
+    'content'   : "ubuntu ALL=(ALL) NOPASSWD:ALL"
+    'priority'  : 10
 
