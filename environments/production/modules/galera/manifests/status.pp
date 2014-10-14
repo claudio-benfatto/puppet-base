@@ -54,6 +54,20 @@ class galera::status (
     before     => Anchor['mysql::server::end']
   }
 
+  mysql_user { "${status_user}@localhost":
+    ensure          => 'present',
+    password_hash   => mysql_password($status_password),
+    require         => [File['/root/.my.cnf'],Service['mysqld']]
+  }->
+  mysql_grant { "${status_user}@localhost/*.*":
+    ensure     => 'present',
+    options    => [ 'GRANT' ],
+    privileges => [ 'SELECT' ],
+    table      => '*.*',
+    user       => "${status_user}@localhost",
+    before     => Anchor['mysql::server::end']
+  }
+
   file { '/usr/local/bin/clustercheck':
     content => template('galera/clustercheck.erb'),
     mode    => '0755',

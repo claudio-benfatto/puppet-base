@@ -33,3 +33,12 @@ mysql::server::grants:
       table: '`rms_test\_%`.*'
       user: 'rms_test@localhost'
 
+
+galera::galera_servers: ['10.0.2.15']
+galera::galera_master: 'vagrant-ubuntu-trusty-64.foodity'
+galera::vendor_type: 'percona'
+galera::configure_repo: true
+galera::configure_firewall: false
+galera::status_check: true
+galera::validate_connection: true
+

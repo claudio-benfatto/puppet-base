@@ -38,20 +38,20 @@
 class foodity-galera {
 
 class { 'galera':
-    galera_servers => [],
-    galera_master  => 'vagrant-ubuntu-trusty-64.foodity',
+#    galera_servers => [],
+#    galera_master  => 'vagrant-ubuntu-trusty-64.foodity',
 
-    vendor_type => 'percona', # default is 'percona'
+#    vendor_type => 'percona', # default is 'percona'
 
     # These options are only used for the firewall - 
     # to change the my.cnf settings, use the override options
     # described below
 
     local_ip => $::ipaddress_eth0, # This will be used to populate my.cnf values that control where wsrep binds, advertises, and listens
-    configure_repo => true, # Disable this if you are managing your own repos and mirrors
-    configure_firewall => false, # Disable this if you don't want firewall rules to be set
-    status_check => false,
-    validate_connection => false,
+#    configure_repo => true, # Disable this if you are managing your own repos and mirrors
+#    configure_firewall => false, # Disable this if you don't want firewall rules to be set
+#    status_check => true,
+#    validate_connection => true,
 }
 
 }
