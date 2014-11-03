@@ -24,30 +24,17 @@ class foodity_common::packages {
   create_resources('@package', hiera_hash('software'))
   Package <||>
 
+  exec { 'rvm-gpg-install':
+    path    => '/usr/bin:/usr/sbin:/bin',
+    command => 'gpg --keyserver hkp://keys.gnupg.net --recv-keys D39DC0E3',
+    unless  => 'gpg --list-keys | grep D39DC0E3',
+    before  => Class['rvm'],
+  }
+
+
   create_resources('rvm_system_ruby', hiera_hash('rvm_system_rubys'))
   create_resources('rvm_gemset', hiera_hash('rvm_gemsets'))
   create_resources('rvm_gem', hiera_hash('rvm_gems'))
-
-#  case $::operatingsystem {
-#    'Ubuntu': {
-#
-#               if $::operatingsystemrelease =~ /^14/ {
-#                 $rubygems_package_name = 'rubygems-integration'
-#               }
-#    }
-#    
-#   default: {
-#          $rubygems_package_name = 'rubygems'
-#        }
-#   }
-
-
-#  package { 'rubygems':
-#    name    => $rubygems_package_name ,
-#    ensure  => 'present',
-#    before  => [ 'Package[deep_merge]', 'Package[hiera-eyaml]', 'Package[highline]' ],
-#  }
-
 
   package { 'docutils':
     ensure  => '0.12',
