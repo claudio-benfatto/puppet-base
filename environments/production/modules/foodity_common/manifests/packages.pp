@@ -28,7 +28,7 @@ class foodity_common::packages {
     path    => '/usr/bin:/usr/sbin:/bin',
     command => 'gpg --keyserver hkp://keys.gnupg.net --recv-keys D39DC0E3',
     unless  => 'gpg --list-keys | grep D39DC0E3',
-    before  => Class['rvm'],
+    before  => [Class['rvm'], Exec['system-rvm'] ],
   }
 
 
