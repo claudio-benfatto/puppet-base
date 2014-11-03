@@ -33,8 +33,11 @@ class foodity_common::packages {
 
 
   create_resources('rvm_system_ruby', hiera_hash('rvm_system_rubys'))
+  Rvm_system_ruby <||> -> Class['rvm']
   create_resources('rvm_gemset', hiera_hash('rvm_gemsets'))
+  Rvm_gemset <||> -> Class['rvm']
   create_resources('rvm_gem', hiera_hash('rvm_gems'))
+  Rvm_gem <||> -> Class['rvm']
 
   package { 'docutils':
     ensure  => '0.12',
