@@ -50,6 +50,9 @@ define foodity_common::user (
                          $mode          = undef,
                          $ssh_auth_keys = undef,
                          $create_group  = true,
+                         $manageruby    = false,
+                         $private_key   = undef,
+                         $public_key    = undef,
  ) {
 
   include sudo
@@ -161,6 +164,38 @@ define foodity_common::user (
 
   create_resources(ssh_authorized_key, $ssh_auth_keys, $defaults)
 
+ }
+
+ if $manageruby == true and $myhome == true {
+   exec { "${name}_bashrc_default_ruby":
+     command    => template("${module}/ruby_default.erb"),
+     path       => "/bin:/usr/bin:/usr/sbin",
+     unless     => "grep -F 'source /usr/local/rvm/scripts/rvm' ${myhome}/.bashrc",
+   }
+ }
+
+ if $my_manage_ssh == true and $private_key and $public_key {
+    file {"${myhome}/.ssh/id_rsa.pub":
+    ensure  => present,
+    owner   => $name,
+    group   => $name,
+    mode    => '0644',
+    path    => "${myhome}/.ssh/id_rsa.pub",
+    content => $public_key,
+    notify  => Class['ssh::server::service'],
+  }
+
+  file {"${myhome}/.ssh/id_rsa":
+    ensure  => present,
+    owner   => $name,
+    group   => $name,
+    mode    => '0600',
+    path    => "${myhome}/.ssh/id_rsa",
+    content => $private_key,
+    notify  => Class['ssh::server::service'],
+  }
+ 
+  
  }
 
 }
