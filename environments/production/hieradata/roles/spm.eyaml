@@ -2,6 +2,9 @@
 
 classes:
   - ssh
+  - docker
+
+docker::version: '0.9.1'
 
 ssh::client_options:
   Host *.github.com:
@@ -31,3 +34,8 @@ common_users:
          type: 'ssh-rsa'
          key: 'AAAAB3NzaC1yc2EAAAADAQABAAABAQDMuKiWDH+R/vAVteuLPx01VUJhwSyxX4Bm9BCouKg6ntP85DK6buskQCrsiDxtz6VjESSi4ba9vrlQh+sTa0lp7vdnAwtlGs/pFmZfUjEjcRF+5JzVDPU1+y0/5cSVP2WqZ7miSAJZmGpIitAzkWDJRbZ4GacKFFPn8Q7iPWtZD9CS9oy0wNdwWTH6sM6aVEXHUiBVhcKm5j6Lu92Bf+8Y9eaPdilSzPc/ypRb8IrYc9YwchntCIfXcWo7Dluoy6pmxioK0Kqx2DQSLkqUKia0MF/73AOTLPMjYlOHE6dHJGsKqBXO2YV1lXefb5MsfBKPh39Of+FfUUeMpdE6F7lb'
 
+
+sudo::configs:
+  'spm':
+    'content'   : "spm ALL=(root) NOPASSWD:ALL"
+    'priority'  : 10
