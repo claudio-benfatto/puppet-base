@@ -25,6 +25,7 @@ common_users:
     comment: 'Claudio Benfatto'
     password: $6$IgrUE5Q/fbd7s7dQ$IeZZ5OzSbUGZeMOGZqcgbebfrX29p1s/CtAsLm0Jb5OZLaVP.Tdm0toGr7gTOkzvIyf16FV3RDS.74mpWj5IG/
     groups: 'admin'
+    manageruby: true
     ssh_auth_keys:
       claudio-as-claudio:
          type: 'ssh-rsa' 
