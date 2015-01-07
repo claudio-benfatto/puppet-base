@@ -11,7 +11,10 @@
 #
 # Sample Usage:
 #
-class foodity_php ( ) {
+class foodity_php ( 
+                    $version = undef,
+                    $service = 'apache2',
+                    ) {
 
 #  if $with_mysql {
 #    class { 'foodity_mysql':  
@@ -24,5 +27,11 @@ class foodity_php ( ) {
 #  }
 
   contain foodity_php::packages
+  
+  class { 'php':
+            version => $version,
+            service => $service,
+  }
+
 
 }

@@ -13,6 +13,6 @@
 #
 class foodity_php::packages {
 
-  create_resources('package', hiera(php_software))
+  create_resources('Php::Module', hiera(php_modules))
 
 }

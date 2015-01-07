@@ -23,28 +23,19 @@
 # === Copyright
 #
 #
-class foodity_apache {
+class foodity_apache( 
+                     $apache_version = '2.4' ) {
 
   class {'::apache':
     mpm_module          => 'prefork',
     default_mods        => false,
     default_confd_files => false,
+    apache_version      => $apache_version,   
   }
 
-  include apache::mod::rewrite
-  include apache::mod::proxy
-  include apache::mod::status
-  include apache::mod::ssl
+  $apache_modules = hiera('apache_modules')
+  apache::mod { $apache_modules: }
 
-  class { '::apache::mod::php':
-    require => 'Class[Apache::Mod::prefork]'
-  }
-
-  apache::mod { 'jk':
-    require => 'Package[libapache2-mod-jk]'
-  }
-
-  create_resources('package', hiera_hash('apache_software'))
   create_resources('file', hiera_hash('apache_folders'))
   create_resources('::apache::vhost', hiera_hash('apache_vhosts'))
 }

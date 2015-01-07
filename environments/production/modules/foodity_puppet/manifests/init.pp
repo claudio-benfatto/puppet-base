@@ -40,19 +40,6 @@ class foodity_puppet {
     mode   => '0755',
   }
 
-#  file { '/usr/local/bin/pull-updates':
-#    source => 'puppet:///modules/foodity_puppet/pull-updates.sh',
-#    mode  => '0755',
-#}
-
-#  exec {'set-git-remote':
-#    command => "git remote set-url origin ${ssh_git_remote}",
-#    path    => '/usr/bin/:/bin/',
-#    cwd     => '/etc/puppet',
-#    unless  => "git remote show origin | grep ${ssh_git_remote} 2> /dev/null",
-#    require => 'Package[git]',
-#  }
-
   cron { 'run-puppet':
     ensure  => 'absent',
     user    => 'root',
