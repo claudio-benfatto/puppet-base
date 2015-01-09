@@ -16,9 +16,9 @@
 # - /var/lib/hiera on *nix
 # - %CommonAppData%\PuppetLabs\hiera\var on Windows
 # When specifying a datadir, make sure the directory exists.
-  :datadir: /etc/puppet/data/%{::environment}/hieradata
+  :datadir: /etc/puppet/data/%{::environment}
 :eyaml:
-  :datadir: /etc/puppet/data/%{::environment}/hieradata
+  :datadir: /etc/puppet/data/%{::environment}
   :extension: 'eyaml'
 
   # If using the pkcs7 encryptor (default)
