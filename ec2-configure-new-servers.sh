@@ -42,7 +42,7 @@ Client {
   Address = ${ip}
   FDPort = 9102
   Catalog = MyCatalog
-  Password = "cj2YENAsEeJk1nmMwipDtlUhi1XB8S3iw"          # password for FileDaemon
+  Password = "********************************"          # password for FileDaemon
   File Retention = 30 days
   Job Retention = 6 months
   AutoPrune = yes
