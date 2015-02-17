@@ -5,8 +5,8 @@ exit
 }
 
 
-export AWS_ACCESS_KEY=AKIAI5DIK2FBRLRYUX3A
-export AWS_SECRET_KEY=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
+export AWS_ACCESS_KEY=****************************
+export AWS_SECRET_KEY=****************************
 
 # RESERVATION     r-6d7cb978      765404956144    production
 # INSTANCE        i-23fd3736      ami-17a0090a    ec2-54-232-160-222.sa-east-1.compute.amazonaws.com      ip-10-253-166-120.sa-east-1.compute.internal    running claudio-sa-aws  0               m3.xlarge       2015-02-09T17:01:46+0000        sa-east-1b      aki-c48f51d9                    monitoring-disabled     54.232.160.222  10.253.166.120                  ebs                                     paravirtual     xen     VTONw1406127334790      sg-8773279a     default false   
