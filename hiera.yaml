@@ -10,6 +10,7 @@
   - "%{clientcert}"
   - "%{environment}"
   - "roles/%{foodity_role}"
+  - "roles/%{foodity_role}/%{foodity_profile}"
 
 :yaml:
 # datadir is empty here, so hiera uses its defaults:
