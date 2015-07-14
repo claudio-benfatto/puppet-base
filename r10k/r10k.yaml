@@ -1,7 +1,7 @@
 :cachedir: /var/cache/r10k
 :sources:
   hiera:
-    basedir: /etc/puppetlabs/code/environments
+    basedir: /etc/puppetlabs/code/hieradata
     prefix: false
     remote: git@github.com:foodity/puppet-hieradata.git
   puppet:
