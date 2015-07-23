@@ -22,6 +22,7 @@
   :datadir: /etc/puppetlabs/code/hieradata/%{::environment}
   :extension: 'eyaml'
 
+  :gpg_gnupghome: /root/.gnupg
   # If using the pkcs7 encryptor (default)
   :pkcs7_private_key: /root/.puppet/keys/private_key.pkcs7.pem
   :pkcs7_public_key:  /root/.puppet/keys/public_key.pkcs7.pem
